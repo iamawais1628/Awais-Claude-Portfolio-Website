@@ -237,8 +237,11 @@ window.addEventListener('scroll', () => {
     if (window.scrollY >= s.offsetTop - 120) current = s.id;
   });
   navLinks.forEach(a => {
+    const href = a.getAttribute('href');
+    // Skip links that go to separate pages — only highlight anchor links
+    if (href && href.includes('.html')) return;
     a.style.color = '';
-    if (a.getAttribute('href') === '#' + current) {
+    if (href === '#' + current) {
       a.style.color = 'var(--blue-light)';
     }
   });
