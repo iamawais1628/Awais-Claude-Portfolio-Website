@@ -246,6 +246,18 @@ body {
 .mobile-menu a:hover { color: var(--blue); }
 
 /* ═══════════════════════ HERO ═══════════════════════ */
+
+/* Image CSS */
+
+.hero-photo {
+  width: 260px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+
 #hero {
   min-height: 100vh;
   display: flex;
