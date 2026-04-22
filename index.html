@@ -16,8 +16,56 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-<style>a.sc-arrow{text-decoration:none;display:inline-block;cursor:pointer;}</style>
+  <style>
+    /* ── Arrow link base styles ── */
+    a.sc-arrow {
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      /* Keep desktop hover behaviour from style.css intact */
+    }
+
+    /* ── MOBILE FIX ──
+       On touch devices hover never fires so opacity:0 keeps
+       the arrow permanently invisible and untappable.
+       On mobile: always show the arrow, make the whole card
+       tappable, and give the arrow a proper tap target size. */
+    @media (max-width: 768px) {
+      a.sc-arrow {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        margin-top: 12px;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 20px;
+        color: var(--blue-light);
+        background: rgba(201,168,76,.06);
+        border: 1px solid rgba(201,168,76,.2);
+        border-radius: 8px;
+        font-family: var(--font-ui);
+        font-weight: 700;
+        letter-spacing: 1px;
+        min-height: 44px; /* Apple/Google recommended minimum tap target */
+        transition: background .2s;
+      }
+      a.sc-arrow:active {
+        background: rgba(201,168,76,.15);
+      }
+      /* Add label text next to arrow on mobile so it's clear it's a link */
+      a.sc-arrow::before {
+        content: 'View Service ';
+        font-size: 13px;
+        font-weight: 600;
+        font-family: var(--font-ui);
+        letter-spacing: .5px;
+      }
+    }
+  </style>
 </head>
+<body>
 <body>
 
 <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
@@ -29,7 +77,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="#blog">Insights</a></li>
@@ -45,7 +93,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <ul>
     <li><a href="about.html" onclick="closeMobile()">About</a></li>
-    <li><a href="services.html" onclick="closeMobile()">Services</a></li>
+    <li><a href="#services" onclick="closeMobile()">Services</a></li>
     <li><a href="#skills" onclick="closeMobile()">Skills</a></li>
     <li><a href="portfolio.html" onclick="closeMobile()">Portfolio</a></li>
     <li><a href="#blog" onclick="closeMobile()">Insights</a></li>
@@ -709,9 +757,8 @@
         <div class="fl-col">
           <div class="fl-title">Quick Links</div>
           <!-- ✅ FIX: footer about link updated to match renamed section id -->
-          <a href="about.html">About</a>
+          <a href="#about-section">About</a>
           <a href="portfolio.html">Portfolio</a>
-          <a href="services.html">Services</a>
           <a href="#blog">Insights</a>
           <a href="#contact">Contact</a>
         </div>
@@ -721,7 +768,7 @@
       <span>Built with precision · iamawaistahir.com</span>
       <div class="footer-socials">
         <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
-        <a href="https://wa.me/923000889402" target="_blank" aria-label="WhatsApp">wa</a>
+        <a href="https://wa.me/923001234567" target="_blank" aria-label="WhatsApp">wa</a>
       </div>
     </div>
   </div>
