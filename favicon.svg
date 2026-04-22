@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d080"/>
+      <stop offset="50%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#a07828"/>
+    </linearGradient>
+  </defs>
+  <!-- Black rounded background -->
+  <rect width="64" height="64" rx="14" fill="#080808"/>
+  <!-- Subtle gold border -->
+  <rect width="64" height="64" rx="14" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.6"/>
+  <!-- A letter -->
+  <text
+    x="11"
+    y="46"
+    font-family="Georgia, 'Cormorant Garamond', serif"
+    font-size="34"
+    font-weight="700"
+    fill="url(#gold)"
+    letter-spacing="-1">AT</text>
+</svg>
