@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,214 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="shortcut icon" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ── Arrow link base styles ── */
-    a.sc-arrow {
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
-      /* Keep desktop hover behaviour from style.css intact */
-    }
-
-    /* ── MOBILE FIX ──
-       On touch devices hover never fires so opacity:0 keeps
-       the arrow permanently invisible and untappable.
-       On mobile: always show the arrow, make the whole card
-       tappable, and give the arrow a proper tap target size. */
-    @media (max-width: 768px) {
-      a.sc-arrow {
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        margin-top: 12px;
-        width: 100%;
-        padding: 10px 0;
-        font-size: 20px;
-        color: var(--blue-light);
-        background: rgba(201,168,76,.06);
-        border: 1px solid rgba(201,168,76,.2);
-        border-radius: 8px;
-        font-family: var(--font-ui);
-        font-weight: 700;
-        letter-spacing: 1px;
-        min-height: 44px; /* Apple/Google recommended minimum tap target */
-        transition: background .2s;
-      }
-      a.sc-arrow:active {
-        background: rgba(201,168,76,.15);
-      }
-      /* Add label text next to arrow on mobile so it's clear it's a link */
-      a.sc-arrow::before {
-        content: 'View Service ';
-        font-size: 13px;
-        font-weight: 600;
-        font-family: var(--font-ui);
-        letter-spacing: .5px;
-      }
-    }
-
-    /* ═══════════════════════════════════════════
-       CORNER FLOAT CARDS — fully outside photo
-       ═══════════════════════════════════════════ */
-
-    /* hero-img-wrap: add padding so cards live in that space,
-       completely outside the photo itself */
-    .hero-img-wrap {
-      position: relative;
-      padding: 72px 80px;   /* reduced — more space for the photo */
-      box-sizing: border-box;
-      width: 420px;         /* wider wrap = bigger photo */
-      height: 520px;        /* taller wrap = bigger photo */
-    }
-
-    /* Photo fills the padded inner area cleanly */
-    .hero-img-placeholder {
-      padding: 0 !important;
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--radius-lg);
-    }
-    .hero-img-placeholder img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      border-radius: var(--radius-lg);
-    }
-    .img-label, .img-sublabel { display: none; }
-
-    /* All 4 corner cards — identical fixed size, fully outside photo */
-    .corner-card {
-      position: absolute !important;
-      /* Fixed equal size for all cards */
-      width: 148px !important;
-      min-width: 148px !important;
-      max-width: 148px !important;
-      height: 82px !important;
-      min-height: 82px !important;
-      max-height: 82px !important;
-      padding: 10px 12px !important;
-      overflow: hidden;
-      z-index: 10;
-      box-sizing: border-box;
-      /* Reset any inherited float-card-1/2/3 positioning */
-      top: auto; bottom: auto; left: auto; right: auto;
-    }
-
-    /* Uniform font sizes inside cards */
-    .corner-card .fc-label {
-      font-size: 9px !important;
-      letter-spacing: 1px;
-      margin-bottom: 3px !important;
-    }
-    .corner-card .fc-value {
-      font-size: 18px !important;
-      line-height: 1.2;
-    }
-    .corner-card .fc-icon {
-      font-size: 16px !important;
-      margin-top: 2px !important;
-    }
-    .corner-card .fc-bar {
-      margin-top: 5px !important;
-      height: 3px !important;
-    }
-    .corner-card .fc-ring {
-      width: 22px !important;
-      height: 22px !important;
-      margin-top: 4px !important;
-    }
-    .corner-card svg {
-      height: 26px !important;
-      margin-top: 2px !important;
-    }
-
-    /* Position each card fully in the padding zone — outside the photo */
-    /* TOP-LEFT: sits in the top-left padding corner */
-    .corner-tl {
-      top: 0 !important;
-      left: 0 !important;
-      animation: floatAnim 4s ease-in-out infinite !important;
-    }
-
-    /* TOP-RIGHT: sits in the top-right padding corner */
-    .corner-tr {
-      top: 0 !important;
-      right: 0 !important;
-      animation: floatAnim 5s ease-in-out infinite .4s !important;
-    }
-
-    /* BOTTOM-LEFT: sits in the bottom-left padding corner */
-    .corner-bl {
-      bottom: 0 !important;
-      left: 0 !important;
-      animation: floatAnim 3.5s ease-in-out infinite .8s !important;
-    }
-
-    /* BOTTOM-RIGHT: sits in the bottom-right padding corner */
-    .corner-br {
-      bottom: 0 !important;
-      right: 0 !important;
-      animation: floatAnim 4.5s ease-in-out infinite .2s !important;
-    }
-
-    /* On mobile hide corner cards — photo shows clean */
-    @media (max-width: 768px) {
-      .corner-card { display: none !important; }
-    }
-
-    /* ═══════════════════════════════════════════
-       MOBILE: Show photo clean, no cards, no padding
-       ═══════════════════════════════════════════ */
-    @media (max-width: 768px) {
-
-      /* Override style.css which hides hero-visual entirely on mobile */
-      .hero-visual {
-        display: flex !important;
-        flex: none !important;
-        width: 100%;
-        justify-content: center;
-        margin-top: 36px;
-      }
-
-      /* Remove the desktop padding — on mobile there are no corner cards
-         so the wrap should just be the photo size */
-      .hero-img-wrap {
-        padding: 0 !important;
-        width: 220px !important;
-        height: 280px !important;
-        flex-shrink: 0;
-      }
-
-      /* Photo fills cleanly */
-      .hero-img-placeholder {
-        width: 100% !important;
-        height: 100% !important;
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-      }
-      .hero-img-placeholder img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        border-radius: var(--radius-lg);
-        display: block;
-      }
-
-      /* Hide rings on mobile — too wide */
-      .hero-img-ring { display: none; }
-    }
-  </style>
 </head>
-<body>
 <body>
 
 <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
@@ -234,8 +28,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="skills.html">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="#blog">Insights</a></li>
       <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
@@ -250,8 +44,8 @@
 <div class="mobile-menu" id="mobileMenu">
   <ul>
     <li><a href="about.html" onclick="closeMobile()">About</a></li>
-    <li><a href="services.html" onclick="closeMobile()">Services</a></li>
-    <li><a href="skills.html" onclick="closeMobile()">Skills</a></li>
+    <li><a href="#services" onclick="closeMobile()">Services</a></li>
+    <li><a href="#skills" onclick="closeMobile()">Skills</a></li>
     <li><a href="portfolio.html" onclick="closeMobile()">Portfolio</a></li>
     <li><a href="#blog" onclick="closeMobile()">Insights</a></li>
     <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
@@ -291,56 +85,45 @@
     </div>
 
     <div class="hero-visual">
+      <div class="float-card float-card-1 reveal-float">
+        <div class="fc-label">Revenue Growth</div>
+        <div class="fc-value">+34.7%</div>
+        <div class="fc-bar"><div class="fc-fill" style="width:75%"></div></div>
+      </div>
+      <div class="float-card float-card-2 reveal-float" style="animation-delay:.3s">
+        <div class="fc-label">Reports Delivered</div>
+        <div class="fc-value">200+</div>
+        <div class="fc-icon">📊</div>
+      </div>
+      <div class="float-card float-card-3 reveal-float" style="animation-delay:.6s">
+        <div class="fc-label">Data Accuracy</div>
+        <div class="fc-value">99.8%</div>
+        <div class="fc-ring"></div>
+      </div>
+
       <div class="hero-img-wrap">
         <div class="hero-img-ring"></div>
         <div class="hero-img-ring ring-2"></div>
-
-        <!-- Photo — fills the wrapper cleanly -->
         <div class="hero-img-placeholder">
           <img
             src="Your-Photo.jpg"
             alt="Awais Tahir"
             style="width:100%; height:100%; object-fit:cover; object-position:top; border-radius:inherit;"
           />
+          <div class="img-label">Awais Tahir</div>
+          <div class="img-sublabel">Finance · Analytics · Tech</div>
         </div>
-
-        <!-- Corner cards — all inside hero-img-wrap so they anchor to the photo box -->
-
-        <!-- TOP-LEFT: Revenue Growth -->
-        <div class="float-card corner-card corner-tl reveal-float">
-          <div class="fc-label">Revenue Growth</div>
-          <div class="fc-value">+34.7%</div>
-          <div class="fc-bar"><div class="fc-fill" style="width:75%"></div></div>
-        </div>
-
-        <!-- TOP-RIGHT: ACCA -->
-        <div class="float-card corner-card corner-tr reveal-float" style="animation-delay:.2s">
-          <div class="fc-label">Qualification</div>
-          <div class="fc-value" style="font-size:18px">ACCA</div>
-          <div class="fc-icon">🎓</div>
-        </div>
-
-        <!-- BOTTOM-LEFT: Mini chart -->
-        <div class="float-card corner-card corner-bl reveal-float" style="animation-delay:.4s">
-          <div class="fc-label">Performance</div>
-          <svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-top:6px">
-            <polyline points="0,35 18,25 35,30 52,12 68,17 85,6 100,9" stroke="url(#cgc)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="hero-mini-chart">
+          <svg viewBox="0 0 120 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="0,40 20,30 40,35 60,15 80,20 100,8 120,12" stroke="url(#cg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             <defs>
-              <linearGradient id="cgc" x1="0" y1="0" x2="100" y2="0">
-                <stop stop-color="#c9a84c"/>
-                <stop offset="1" stop-color="#f0d080"/>
+              <linearGradient id="cg" x1="0" y1="0" x2="120" y2="0">
+                <stop stop-color="#50fa7b"/>
+                <stop offset="1" stop-color="#4a9eff"/>
               </linearGradient>
             </defs>
           </svg>
         </div>
-
-        <!-- BOTTOM-RIGHT: Data Accuracy -->
-        <div class="float-card corner-card corner-br reveal-float" style="animation-delay:.6s">
-          <div class="fc-label">Data Accuracy</div>
-          <div class="fc-value">99.8%</div>
-          <div class="fc-ring"></div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -470,56 +253,56 @@
         <h3 class="sc-title">Bookkeeping & Accounting</h3>
         <p class="sc-desc">Accurate, timely bookkeeping and full-cycle accounting tailored to your business needs using QuickBooks and Excel.</p>
         <div class="sc-tags"><span>QuickBooks</span><span>Excel</span><span>GAAP</span></div>
-        <a href="services.html#bookkeeping" class="sc-arrow">→</a>
+        <div class="sc-arrow">→</div>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#059669;transition-delay:.08s">
         <div class="sc-glow"></div><div class="sc-icon">📋</div>
         <h3 class="sc-title">Financial Reporting</h3>
         <p class="sc-desc">Professional financial statements, P&L analysis, balance sheets, and management reports that tell the true story of your business.</p>
         <div class="sc-tags"><span>IFRS</span><span>P&L</span><span>Cash Flow</span></div>
-        <a href="services.html#financial-reporting" class="sc-arrow">→</a>
+        <div class="sc-arrow">→</div>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#7c3aed;transition-delay:.16s">
         <div class="sc-glow"></div><div class="sc-icon">🔍</div>
         <h3 class="sc-title">Data Analytics</h3>
         <p class="sc-desc">Transform raw business data into actionable insights with advanced statistical analysis and visual storytelling.</p>
         <div class="sc-tags"><span>Python</span><span>SQL</span><span>Pandas</span></div>
-        <a href="services.html#data-analytics" class="sc-arrow">→</a>
+        <div class="sc-arrow">→</div>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#f59e0b;transition-delay:.24s">
         <div class="sc-glow"></div><div class="sc-icon">📈</div>
         <h3 class="sc-title">Power BI Dashboards</h3>
         <p class="sc-desc">Interactive, real-time Power BI dashboards that bring your KPIs to life with beautiful visualizations and drill-down capability.</p>
         <div class="sc-tags"><span>Power BI</span><span>DAX</span><span>KPIs</span></div>
-        <a href="services.html#power-bi" class="sc-arrow">→</a>
+        <div class="sc-arrow">→</div>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#0891b2;transition-delay:.32s">
         <div class="sc-glow"></div><div class="sc-icon">🗄️</div>
         <h3 class="sc-title">SQL Analysis</h3>
         <p class="sc-desc">Deep database querying, complex joins, and ETL pipelines to extract meaningful patterns from large financial datasets.</p>
         <div class="sc-tags"><span>SQL</span><span>ETL</span><span>PostgreSQL</span></div>
-        <a href="services.html#sql-analysis" class="sc-arrow">→</a>
+        <div class="sc-arrow">→</div>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#10b981;transition-delay:.4s">
         <div class="sc-glow"></div><div class="sc-icon">🤖</div>
         <h3 class="sc-title">Python Automation</h3>
         <p class="sc-desc">Custom Python scripts that automate repetitive financial tasks — from report generation to data reconciliation — saving hours every week.</p>
         <div class="sc-tags"><span>Python</span><span>Automation</span><span>APIs</span></div>
-        <a href="services.html#python-automation" class="sc-arrow">→</a>
+        <div class="sc-arrow">→</div>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#8b5cf6;transition-delay:.48s">
         <div class="sc-glow"></div><div class="sc-icon">🧠</div>
         <h3 class="sc-title">Business Intelligence</h3>
         <p class="sc-desc">End-to-end BI strategy — from data warehouse design to executive reporting — so leadership always has the insight they need.</p>
         <div class="sc-tags"><span>Tableau</span><span>Strategy</span><span>Insights</span></div>
-        <a href="services.html#business-intelligence" class="sc-arrow">→</a>
+        <div class="sc-arrow">→</div>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#f97316;transition-delay:.56s">
         <div class="sc-glow"></div><div class="sc-icon">💡</div>
         <h3 class="sc-title">Software Development</h3>
         <p class="sc-desc">Future-facing fintech software solutions — custom financial tools, SaaS applications, and intelligent platforms built for scale.</p>
         <div class="sc-tags"><span>SaaS</span><span>Fintech</span><span>AI-Powered</span></div>
-        <a href="services.html#software-development" class="sc-arrow">→</a>
+        <div class="sc-arrow">→</div>
       </div>
     </div>
   </div>
@@ -862,48 +645,48 @@
         </div>
       </div>
       <div class="contact-form-wrap scroll-reveal" style="transition-delay:.2s">
-<form action="https://formsubmit.co/hafizmuhammadawais831@gmail.com" method="POST">
-  <input type="hidden" name="_subject" value="New Portfolio Contact Message">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-
-  <div class="form-row">
-    <div class="form-group">
-      <label>Full Name</label>
-      <input type="text" name="name" placeholder="John Smith" required />
+        <form action="https://formsubmit.co/hafizmuhammadawais831@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="name" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="john@company.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option>Bookkeeping & Accounting</option>
+              <option>Financial Reporting</option>
+              <option>Data Analytics</option>
+              <option>Power BI Dashboard</option>
+              <option>Python Automation</option>
+              <option>Business Intelligence</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Message</label>
+            <textarea name="message" rows="5" placeholder="Tell me about your project or business challenge..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full">
+            <span>Send Message</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <div class="form-success" id="formSuccess">✅ Message sent! I'll respond within 24 hours.</div>
+        </form>
+      </div>
     </div>
-
-    <div class="form-group">
-      <label>Email Address</label>
-      <input type="email" name="email" placeholder="john@company.com" required />
-    </div>
   </div>
+</section>
 
-  <div class="form-group">
-    <label>Service Needed</label>
-    <select name="service">
-      <option value="">Select a service...</option>
-      <option>Bookkeeping & Accounting</option>
-      <option>Financial Reporting</option>
-      <option>Data Analytics</option>
-      <option>Power BI Dashboard</option>
-      <option>Python Automation</option>
-      <option>Business Intelligence</option>
-      <option>Other</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Your Message</label>
-    <textarea name="message" rows="5" placeholder="Tell me about your project or business challenge..." required></textarea>
-  </div>
-
-  <button type="submit" class="btn-primary btn-full">
-    <span>Send Message</span>
-    <span class="btn-arrow">→</span>
-  </button>
-</form>
-        
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="footer">
   <div class="container">
@@ -938,8 +721,8 @@
     <div class="footer-bottom">
       <span>Built with precision · iamawaistahir.com</span>
       <div class="footer-socials">
-        <a href="https://linkedin.com/in/iamawais1628" target="_blank" aria-label="LinkedIn">in</a>
-        <a href="https://wa.me/923000889402" target="_blank" aria-label="WhatsApp">wa</a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
+        <a href="https://wa.me/923001234567" target="_blank" aria-label="WhatsApp">wa</a>
       </div>
     </div>
   </div>
