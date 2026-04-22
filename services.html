@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Awais Tahir — Finance Professional & Data Analyst</title>
+  <meta name="description" content="Comprehensive finance and data analytics services by Awais Tahir — bookkeeping, financial reporting, Power BI dashboards, Python automation, SQL analysis, and business intelligence." />
+  <meta name="author" content="Awais Tahir" />
+  <link rel="canonical" href="https://iamawaistahir.com/services.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ══════════════════════════════════════════
+       SERVICES PAGE — EXTENDED STYLES
+       ══════════════════════════════════════════ */
+
+    /* ── Page Hero ── */
+    .srv-hero {
+      padding: 160px 0 90px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,.1) 0%, transparent 65%);
+    }
+    .srv-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    }
+    .srv-hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .srv-hero-orb-1 { width: 600px; height: 600px; top: -200px; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(201,168,76,.14) 0%, transparent 65%); }
+    .srv-hero-orb-2 { width: 300px; height: 300px; bottom: 0; left: -100px; background: radial-gradient(circle, rgba(201,168,76,.08) 0%, transparent 65%); }
+    .srv-hero-orb-3 { width: 250px; height: 250px; bottom: 0; right: -80px; background: radial-gradient(circle, rgba(201,168,76,.08) 0%, transparent 65%); }
+    .srv-hero .container { position: relative; z-index: 2; }
+    .srv-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 7vw, 82px);
+      font-weight: 700;
+      line-height: 1.08;
+      margin-bottom: 22px;
+      color: var(--text-1);
+    }
+    .srv-hero-sub {
+      font-size: 18px;
+      color: var(--text-2);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+    .srv-hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-top: 52px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .srv-hero-stat { text-align: center; }
+    .srv-hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f0d080, #c9a84c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .srv-hero-stat-label {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 6px;
+    }
+
+    /* ── Service Detail Cards ── */
+    .services-detail-section { padding: 80px 0 60px; }
+    .services-detail-list { display: flex; flex-direction: column; gap: 0; }
+
+    .srv-item {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .srv-item:last-child { border-bottom: none; }
+    .srv-item-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .srv-item-inner.reverse { direction: rtl; }
+    .srv-item-inner.reverse > * { direction: ltr; }
+
+    /* Number watermark */
+    .srv-item-number {
+      position: absolute;
+      top: 40px; left: 0;
+      font-family: var(--font-display);
+      font-size: 120px;
+      font-weight: 700;
+      color: rgba(201,168,76,.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Visual panel */
+    .srv-visual {
+      background: var(--navy-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+    .srv-visual-header {
+      background: var(--navy-4);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .srv-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .srv-dot-1 { background: #f97316; opacity: .7; }
+    .srv-dot-2 { background: #f59e0b; opacity: .7; }
+    .srv-dot-3 { background: #50fa7b; opacity: .7; }
+    .srv-visual-title {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      color: var(--text-3);
+      margin-left: 8px;
+      letter-spacing: 1px;
+    }
+    .srv-visual-body { padding: 28px; }
+
+    /* Info panel */
+    .srv-info { }
+    .srv-cat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(201,168,76,.08);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 18px;
+    }
+    .srv-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.8vw, 46px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-1);
+      margin-bottom: 14px;
+    }
+    .srv-tagline {
+      font-family: var(--font-display);
+      font-size: 17px;
+      color: var(--blue-light);
+      font-style: italic;
+      margin-bottom: 22px;
+    }
+    .srv-desc {
+      font-size: 16px;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    /* What's included list */
+    .srv-includes { margin-bottom: 28px; }
+    .srv-includes-title {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-3);
+      margin-bottom: 14px;
+    }
+    .srv-includes-list { display: flex; flex-direction: column; gap: 10px; }
+    .srv-include-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14.5px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+    .srv-include-check {
+      width: 20px; height: 20px;
+      background: rgba(201,168,76,.12);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 10px;
+      color: var(--blue-light);
+    }
+
+    /* Metrics strip */
+    .srv-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .srv-metric {
+      background: var(--navy-3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+      transition: border-color .2s;
+    }
+    .srv-metric:hover { border-color: var(--blue-light); }
+    .srv-metric-val {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f0d080, #c9a84c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .srv-metric-label {
+      font-size: 11px;
+      color: var(--text-3);
+      font-family: var(--font-ui);
+      margin-top: 5px;
+      letter-spacing: .5px;
+    }
+
+    /* Tech stack */
+    .srv-stack-title {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-3);
+      margin-bottom: 10px;
+    }
+    .srv-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .srv-tag {
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 8px;
+      background: rgba(201,168,76,.08);
+      color: var(--blue-light);
+      font-family: var(--font-ui);
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    /* Visual mock elements */
+    .mock-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--text-2);
+    }
+    .mock-row:last-child { border-bottom: none; }
+    .mock-row-label { color: var(--text-3); font-size: 12px; }
+    .mock-row-val { color: var(--text-1); font-weight: 600; }
+    .mock-row-badge {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: var(--font-ui);
+    }
+    .badge-green { background: rgba(80,250,123,.12); color: #50fa7b; border: 1px solid rgba(80,250,123,.2); }
+    .badge-gold  { background: rgba(201,168,76,.12); color: var(--blue-light); border: 1px solid var(--border); }
+    .badge-red   { background: rgba(249,115,22,.12); color: #f97316; border: 1px solid rgba(249,115,22,.2); }
+
+    .mock-bar-row { margin-bottom: 12px; }
+    .mock-bar-header { display: flex; justify-content: space-between; font-family: var(--font-ui); font-size: 12px; color: var(--text-3); margin-bottom: 5px; }
+    .mock-bar-track { height: 6px; background: rgba(255,255,255,.06); border-radius: 3px; overflow: hidden; }
+    .mock-bar-fill { height: 100%; border-radius: 3px; }
+
+    .mock-kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .mock-kpi {
+      background: var(--navy-4);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .mock-kpi-label { font-family: var(--font-ui); font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-3); margin-bottom: 4px; }
+    .mock-kpi-val { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text-1); }
+    .mock-kpi-sub { font-size: 9px; margin-top: 2px; }
+
+    .mock-code {
+      background: var(--navy-4);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-family: monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .code-kw  { color: #f0d080; }
+    .code-fn  { color: #c9a84c; }
+    .code-str { color: #80d0a0; }
+    .code-cmt { color: var(--text-3); }
+    .code-var { color: var(--text-1); }
+    .code-num { color: #e8c56b; }
+
+    .mock-chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+    .mock-bar-col {
+      flex: 1;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(to top, #c9a84c, #f0d080);
+      opacity: .7;
+      transition: opacity .2s;
+    }
+    .mock-bar-col:hover { opacity: 1; }
+
+    /* ── Process Section ── */
+    .process-section {
+      padding: 80px 0;
+      background: var(--navy-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .process-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,.06) 0%, transparent 65%);
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+      z-index: 0;
+    }
+    .process-card {
+      background: var(--navy-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      transition: all .3s;
+    }
+    .process-card:hover { border-color: var(--blue-light); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(201,168,76,.1); }
+    .process-step-num {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, rgba(201,168,76,.15), rgba(201,168,76,.05));
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--blue-light);
+      margin: 0 auto 16px;
+    }
+    .process-title { font-family: var(--font-ui); font-weight: 700; font-size: 15px; color: var(--text-1); margin-bottom: 10px; }
+    .process-desc { font-size: 13.5px; color: var(--text-2); line-height: 1.7; }
+
+    /* ── Why Choose Me Section ── */
+    .why-section { padding: 80px 0; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .why-card {
+      background: var(--navy-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all .3s;
+    }
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue-light), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .why-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(201,168,76,.08); }
+    .why-card:hover::before { opacity: 1; }
+    .why-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+    .why-title { font-family: var(--font-ui); font-weight: 700; font-size: 17px; color: var(--text-1); margin-bottom: 10px; }
+    .why-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; }
+
+    /* ── Pricing Section ── */
+    .pricing-section { padding: 80px 0; background: var(--navy-2); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pricing-card {
+      background: var(--navy-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      position: relative;
+      transition: all .3s;
+    }
+    .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(201,168,76,.1); }
+    .pricing-card.featured {
+      border-color: var(--blue-light);
+      background: linear-gradient(160deg, rgba(201,168,76,.08) 0%, var(--navy-3) 60%);
+    }
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #c9a84c, #f0d080);
+      color: #000;
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 18px;
+      border-radius: 100px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .pricing-tier { font-family: var(--font-ui); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--blue-light); margin-bottom: 12px; }
+    .pricing-name { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--text-1); margin-bottom: 8px; }
+    .pricing-desc { font-size: 14px; color: var(--text-2); line-height: 1.65; margin-bottom: 24px; }
+    .pricing-price {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text-1);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-price span { font-size: 20px; color: var(--text-3); }
+    .pricing-note { font-size: 12px; color: var(--text-3); font-family: var(--font-ui); margin-bottom: 28px; }
+    .pricing-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
+    .pricing-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .pricing-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-2);
+    }
+    .pricing-check { color: var(--blue-light); flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+    .pricing-cross { color: var(--text-3); flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+
+    /* ── CTA Section ── */
+    .srv-cta-section {
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .srv-cta-orb {
+      position: absolute;
+      width: 600px; height: 600px;
+      left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(circle, rgba(201,168,76,.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .srv-cta-section .container { position: relative; z-index: 2; }
+    .srv-cta-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 58px); font-weight: 700; color: var(--text-1); margin-bottom: 16px; line-height: 1.15; }
+    .srv-cta-desc { font-size: 17px; color: var(--text-2); max-width: 520px; margin: 0 auto 36px; line-height: 1.75; }
+    .srv-cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+    /* ── FAQ Section ── */
+    .faq-section { padding: 80px 0; background: var(--navy-2); }
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text-1);
+      font-family: var(--font-ui);
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      padding: 22px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: color .2s;
+    }
+    .faq-question:hover { color: var(--blue-light); }
+    .faq-icon {
+      width: 28px; height: 28px;
+      background: rgba(201,168,76,.08);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: var(--blue-light);
+      transition: transform .3s, background .2s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(201,168,76,.15); }
+    .faq-answer {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .3s;
+      padding: 0;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 22px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .srv-item-inner { grid-template-columns: 1fr; gap: 40px; }
+      .srv-item-inner.reverse { direction: ltr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid::before { display: none; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .srv-hero { padding: 130px 0 70px; }
+      .srv-hero-stats { gap: 28px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .srv-metrics { grid-template-columns: 1fr 1fr; }
+      .srv-cta-btns { flex-direction: column; align-items: center; }
+      .srv-item-number { font-size: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-at">AT</span>
+      <span class="logo-name">Awais Tahir</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" style="color:var(--blue-light)">Services</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="index.html#blog">Insights</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html" onclick="closeMobile()">About</a></li>
+    <li><a href="services.html" onclick="closeMobile()">Services</a></li>
+    <li><a href="index.html#skills" onclick="closeMobile()">Skills</a></li>
+    <li><a href="portfolio.html" onclick="closeMobile()">Portfolio</a></li>
+    <li><a href="index.html#blog" onclick="closeMobile()">Insights</a></li>
+    <li><a href="index.html#contact" onclick="closeMobile()">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="srv-hero">
+  <div class="srv-hero-orb srv-hero-orb-1"></div>
+  <div class="srv-hero-orb srv-hero-orb-2"></div>
+  <div class="srv-hero-orb srv-hero-orb-3"></div>
+  <div class="container">
+    <div class="section-label reveal-up">What I Offer</div>
+    <h1 class="srv-hero-title reveal-up" style="animation-delay:.1s">
+      Premium <span class="gradient-text">Finance &</span><br/>Data Services
+    </h1>
+    <p class="srv-hero-sub reveal-up" style="animation-delay:.2s">
+      End-to-end financial and analytical services that transform raw numbers into strategic advantage — built for businesses that want to grow smarter.
+    </p>
+    <div class="hero-actions reveal-up" style="animation-delay:.3s;justify-content:center;">
+      <a href="index.html#contact" class="btn-primary">Start a Project</a>
+      <a href="portfolio.html" class="btn-ghost">See My Work</a>
+    </div>
+    <div class="srv-hero-stats reveal-up" style="animation-delay:.45s">
+      <div class="srv-hero-stat">
+        <div class="srv-hero-stat-num">8</div>
+        <div class="srv-hero-stat-label">Core Services</div>
+      </div>
+      <div class="srv-hero-stat">
+        <div class="srv-hero-stat-num">200+</div>
+        <div class="srv-hero-stat-label">Projects Delivered</div>
+      </div>
+      <div class="srv-hero-stat">
+        <div class="srv-hero-stat-num">50+</div>
+        <div class="srv-hero-stat-label">Clients Served</div>
+      </div>
+      <div class="srv-hero-stat">
+        <div class="srv-hero-stat-num">99.8%</div>
+        <div class="srv-hero-stat-label">Accuracy Rate</div>
+      </div>
+      <div class="srv-hero-stat">
+        <div class="srv-hero-stat-num">5+</div>
+        <div class="srv-hero-stat-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SERVICE DETAILS ═══════════════════════ -->
+<section class="services-detail-section">
+  <div class="container">
+    <div class="services-detail-list">
+
+      <!-- ══ 01 BOOKKEEPING ══ -->
+      <article class="srv-item scroll-reveal" id="bookkeeping">
+        <div class="srv-item-number">01</div>
+        <div class="srv-item-inner">
+          <div class="srv-visual">
+            <div class="srv-visual-header">
+              <div class="srv-dot srv-dot-1"></div>
+              <div class="srv-dot srv-dot-2"></div>
+              <div class="srv-dot srv-dot-3"></div>
+              <span class="srv-visual-title">QuickBooks · Monthly Ledger</span>
+            </div>
+            <div class="srv-visual-body">
+              <div class="mock-kpi-grid">
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Total Income</div>
+                  <div class="mock-kpi-val">$84K</div>
+                  <div class="mock-kpi-sub" style="color:#50fa7b">↑ 12.4% MOM</div>
+                </div>
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Total Expenses</div>
+                  <div class="mock-kpi-val">$31K</div>
+                  <div class="mock-kpi-sub" style="color:#f97316">↑ 3.1% MOM</div>
+                </div>
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Net Profit</div>
+                  <div class="mock-kpi-val">$53K</div>
+                  <div class="mock-kpi-sub" style="color:#50fa7b">↑ 18.2% MOM</div>
+                </div>
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Accounts Recv.</div>
+                  <div class="mock-kpi-val">$12K</div>
+                  <div class="mock-kpi-sub" style="color:var(--text-3)">Outstanding</div>
+                </div>
+              </div>
+              <div class="mock-row"><span class="mock-row-label">Bank Reconciliation</span><span class="mock-row-badge badge-green">✓ Reconciled</span></div>
+              <div class="mock-row"><span class="mock-row-label">Payroll Processed</span><span class="mock-row-badge badge-green">✓ Complete</span></div>
+              <div class="mock-row"><span class="mock-row-label">VAT / Tax Filing</span><span class="mock-row-badge badge-gold">Due in 8 days</span></div>
+              <div class="mock-row"><span class="mock-row-label">Outstanding Invoices</span><span class="mock-row-badge badge-red">3 Overdue</span></div>
+              <div style="margin-top:16px">
+                <div class="mock-bar-row">
+                  <div class="mock-bar-header"><span>Revenue vs Budget</span><span style="color:#50fa7b">94%</span></div>
+                  <div class="mock-bar-track"><div class="mock-bar-fill" style="width:94%;background:linear-gradient(90deg,#c9a84c,#f0d080)"></div></div>
+                </div>
+                <div class="mock-bar-row">
+                  <div class="mock-bar-header"><span>Expense Control</span><span style="color:#50fa7b">87%</span></div>
+                  <div class="mock-bar-track"><div class="mock-bar-fill" style="width:87%;background:linear-gradient(90deg,#b8932a,#e8c56b)"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="srv-info">
+            <div class="srv-cat-badge">📚 Finance</div>
+            <h2 class="srv-title">Bookkeeping & Accounting</h2>
+            <p class="srv-tagline">"Accurate books are the foundation of every smart business decision."</p>
+            <p class="srv-desc">I provide full-cycle bookkeeping and accounting services that keep your financials clean, current, and compliant. Using QuickBooks, Xero, or Excel, I manage everything from daily transaction recording to monthly reconciliations — so you always know exactly where your business stands.</p>
+
+            <div class="srv-includes">
+              <div class="srv-includes-title">What's Included</div>
+              <div class="srv-includes-list">
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Full-cycle bookkeeping — income, expenses, assets, liabilities recorded daily</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Monthly bank and credit card reconciliations with variance explanations</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Accounts receivable & payable management with ageing reports</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Payroll processing and journal entries</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Chart of accounts setup and ongoing maintenance</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Audit-ready file preparation</span></div>
+              </div>
+            </div>
+
+            <div class="srv-metrics">
+              <div class="srv-metric"><div class="srv-metric-val">99.8%</div><div class="srv-metric-label">Accuracy Rate</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">48h</div><div class="srv-metric-label">Turnaround</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">GAAP</div><div class="srv-metric-label">Compliant</div></div>
+            </div>
+
+            <div class="srv-stack-title">Tools Used</div>
+            <div class="srv-stack">
+              <span class="srv-tag">QuickBooks</span>
+              <span class="srv-tag">Xero</span>
+              <span class="srv-tag">Excel</span>
+              <span class="srv-tag">GAAP</span>
+              <span class="srv-tag">Bank Feeds</span>
+            </div>
+            <a href="index.html#contact" class="btn-primary">Get Started →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ══ 02 FINANCIAL REPORTING ══ -->
+      <article class="srv-item scroll-reveal" id="reporting" style="background:var(--navy-2)">
+        <div class="srv-item-number">02</div>
+        <div class="srv-item-inner reverse">
+          <div class="srv-info">
+            <div class="srv-cat-badge">📋 Reporting</div>
+            <h2 class="srv-title">Financial Reporting</h2>
+            <p class="srv-tagline">"Financial statements that don't just comply — they communicate."</p>
+            <p class="srv-desc">From monthly management packs to full IFRS-compliant annual reports, I prepare financial statements that tell the true story of your business. Every report is clear, accurate, and designed to drive decisions — not just satisfy auditors.</p>
+
+            <div class="srv-includes">
+              <div class="srv-includes-title">What's Included</div>
+              <div class="srv-includes-list">
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Income Statement (P&L) with period-over-period variance analysis</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Balance Sheet — IFRS / GAAP compliant with full notes</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Cash Flow Statement — direct and indirect methods</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Statement of Changes in Equity</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Management commentary and KPI narrative</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Board-ready presentation format</span></div>
+              </div>
+            </div>
+
+            <div class="srv-metrics">
+              <div class="srv-metric"><div class="srv-metric-val">IFRS</div><div class="srv-metric-label">Compliant</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">150+</div><div class="srv-metric-label">Reports Built</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">0</div><div class="srv-metric-label">Audit Findings</div></div>
+            </div>
+
+            <div class="srv-stack-title">Standards & Tools</div>
+            <div class="srv-stack">
+              <span class="srv-tag">IFRS</span>
+              <span class="srv-tag">GAAP</span>
+              <span class="srv-tag">IAS 16</span>
+              <span class="srv-tag">IFRS 16</span>
+              <span class="srv-tag">Excel</span>
+              <span class="srv-tag">Word</span>
+            </div>
+            <a href="index.html#contact" class="btn-primary">Get Started →</a>
+          </div>
+
+          <div class="srv-visual">
+            <div class="srv-visual-header">
+              <div class="srv-dot srv-dot-1"></div>
+              <div class="srv-dot srv-dot-2"></div>
+              <div class="srv-dot srv-dot-3"></div>
+              <span class="srv-visual-title">IFRS Financial Statements · FY2024</span>
+            </div>
+            <div class="srv-visual-body">
+              <div style="font-family:var(--font-ui);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-3);margin-bottom:10px">STATEMENT OF FINANCIAL POSITION</div>
+              <div class="mock-row"><span class="mock-row-label">Property, Plant & Equipment</span><span class="mock-row-val">£1,240K</span></div>
+              <div class="mock-row"><span class="mock-row-label">Right-of-use Assets (IFRS 16)</span><span class="mock-row-val">£380K</span></div>
+              <div class="mock-row"><span class="mock-row-label">Trade Receivables</span><span class="mock-row-val">£284K</span></div>
+              <div class="mock-row"><span class="mock-row-label">Cash & Equivalents</span><span class="mock-row-val">£142K</span></div>
+              <div class="mock-row" style="border-top:1px solid var(--blue-light);margin-top:6px;padding-top:10px"><span style="font-weight:700;color:var(--text-1)">TOTAL ASSETS</span><span style="font-weight:700;color:var(--blue-light)">£2,551K</span></div>
+              <div style="margin-top:14px;font-family:var(--font-ui);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-3);margin-bottom:10px">P&L SUMMARY</div>
+              <div class="mock-bar-row">
+                <div class="mock-bar-header"><span>Revenue</span><span style="color:var(--blue-light)">£482K</span></div>
+                <div class="mock-bar-track"><div class="mock-bar-fill" style="width:100%;background:linear-gradient(90deg,#c9a84c,#f0d080)"></div></div>
+              </div>
+              <div class="mock-bar-row">
+                <div class="mock-bar-header"><span>Gross Profit</span><span style="color:#50fa7b">£214K (44%)</span></div>
+                <div class="mock-bar-track"><div class="mock-bar-fill" style="width:44%;background:linear-gradient(90deg,#50fa7b,#80d0a0)"></div></div>
+              </div>
+              <div class="mock-bar-row">
+                <div class="mock-bar-header"><span>Net Profit</span><span style="color:#e8c56b">£94K (19%)</span></div>
+                <div class="mock-bar-track"><div class="mock-bar-fill" style="width:19%;background:linear-gradient(90deg,#e8c56b,#f0d080)"></div></div>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:14px;">
+                <div class="mock-row-badge badge-green" style="padding:5px 12px">✓ IFRS Compliant</div>
+                <div class="mock-row-badge badge-green" style="padding:5px 12px">✓ Audit Ready</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ══ 03 DATA ANALYTICS ══ -->
+      <article class="srv-item scroll-reveal" id="analytics">
+        <div class="srv-item-number">03</div>
+        <div class="srv-item-inner">
+          <div class="srv-visual">
+            <div class="srv-visual-header">
+              <div class="srv-dot srv-dot-1"></div>
+              <div class="srv-dot srv-dot-2"></div>
+              <div class="srv-dot srv-dot-3"></div>
+              <span class="srv-visual-title">Python · Pandas Data Analysis</span>
+            </div>
+            <div class="srv-visual-body">
+              <div class="mock-code">
+                <div><span class="code-kw">import</span> <span class="code-var">pandas</span> <span class="code-kw">as</span> <span class="code-var">pd</span></div>
+                <div><span class="code-kw">import</span> <span class="code-var">numpy</span> <span class="code-kw">as</span> <span class="code-var">np</span></div>
+                <div>&nbsp;</div>
+                <div><span class="code-cmt"># Load and clean financial dataset</span></div>
+                <div><span class="code-var">df</span> = pd.<span class="code-fn">read_csv</span>(<span class="code-str">'sales_data.csv'</span>)</div>
+                <div><span class="code-var">df</span>[<span class="code-str">'revenue'</span>] = df[<span class="code-str">'revenue'</span>].<span class="code-fn">fillna</span>(<span class="code-num">0</span>)</div>
+                <div>&nbsp;</div>
+                <div><span class="code-cmt"># Customer segmentation by LTV</span></div>
+                <div><span class="code-var">ltv</span> = df.<span class="code-fn">groupby</span>(<span class="code-str">'customer_id'</span>)</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;.<span class="code-fn">agg</span>({<span class="code-str">'revenue'</span>: <span class="code-str">'sum'</span>})</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;.<span class="code-fn">sort_values</span>(<span class="code-fn">ascending</span>=<span class="code-kw">False</span>)</div>
+                <div>&nbsp;</div>
+                <div><span class="code-cmt"># Output: 14,397 customers ranked</span></div>
+              </div>
+              <div class="mock-kpi-grid">
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Rows Processed</div>
+                  <div class="mock-kpi-val" style="font-size:18px">1.02M</div>
+                  <div class="mock-kpi-sub" style="color:#50fa7b">✓ Clean</div>
+                </div>
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Segments Found</div>
+                  <div class="mock-kpi-val" style="font-size:18px">4</div>
+                  <div class="mock-kpi-sub" style="color:var(--blue-light)">RFM Model</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="srv-info">
+            <div class="srv-cat-badge">🔍 Analytics</div>
+            <h2 class="srv-title">Data Analytics</h2>
+            <p class="srv-tagline">"Your data already has the answers — I help you find them."</p>
+            <p class="srv-desc">I transform raw business data into actionable insights using Python, SQL, and statistical modelling. Whether it's customer segmentation, churn prediction, or revenue forecasting — I deliver analysis that directly informs your strategy.</p>
+
+            <div class="srv-includes">
+              <div class="srv-includes-title">What's Included</div>
+              <div class="srv-includes-list">
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Exploratory data analysis (EDA) and data quality assessment</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Customer lifetime value (LTV) and RFM segmentation models</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Revenue forecasting and trend analysis</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Churn prediction and retention modelling</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Custom Python scripts with documented, reusable code</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Clear written summary of findings and recommendations</span></div>
+              </div>
+            </div>
+
+            <div class="srv-metrics">
+              <div class="srv-metric"><div class="srv-metric-val">1M+</div><div class="srv-metric-label">Rows Processed</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">34%</div><div class="srv-metric-label">Avg. Upsell Lift</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">Python</div><div class="srv-metric-label">Primary Tool</div></div>
+            </div>
+
+            <div class="srv-stack-title">Tools Used</div>
+            <div class="srv-stack">
+              <span class="srv-tag">Python</span>
+              <span class="srv-tag">Pandas</span>
+              <span class="srv-tag">NumPy</span>
+              <span class="srv-tag">Scikit-learn</span>
+              <span class="srv-tag">Matplotlib</span>
+              <span class="srv-tag">Jupyter</span>
+            </div>
+            <a href="index.html#contact" class="btn-primary">Get Started →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ══ 04 POWER BI ══ -->
+      <article class="srv-item scroll-reveal" id="powerbi" style="background:var(--navy-2)">
+        <div class="srv-item-number">04</div>
+        <div class="srv-item-inner reverse">
+          <div class="srv-info">
+            <div class="srv-cat-badge">📈 Dashboards</div>
+            <h2 class="srv-title">Power BI Dashboards</h2>
+            <p class="srv-tagline">"Real-time visibility that replaces your weekly finance meeting."</p>
+            <p class="srv-desc">I design and build interactive Power BI dashboards that connect live to your data sources and deliver instant KPI visibility to every stakeholder. From executive summaries to operational drill-downs — your entire business story on one screen.</p>
+
+            <div class="srv-includes">
+              <div class="srv-includes-title">What's Included</div>
+              <div class="srv-includes-list">
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Data model design with star schema and optimised relationships</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Custom DAX measures — time intelligence, YOY, rolling averages</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Multi-page report with drill-through and cross-filtering</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Live connections to QuickBooks, SQL Server, Excel, SharePoint</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Mobile-optimised layout for executives on the go</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Training session and full documentation handover</span></div>
+              </div>
+            </div>
+
+            <div class="srv-metrics">
+              <div class="srv-metric"><div class="srv-metric-val">10h</div><div class="srv-metric-label">Saved / Week</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">2hr</div><div class="srv-metric-label">Refresh Rate</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">40+</div><div class="srv-metric-label">DAX Measures</div></div>
+            </div>
+
+            <div class="srv-stack-title">Tools Used</div>
+            <div class="srv-stack">
+              <span class="srv-tag">Power BI Desktop</span>
+              <span class="srv-tag">DAX</span>
+              <span class="srv-tag">Power Query (M)</span>
+              <span class="srv-tag">SQL Server</span>
+              <span class="srv-tag">DirectQuery</span>
+            </div>
+            <a href="index.html#contact" class="btn-primary">Get Started →</a>
+          </div>
+
+          <div class="srv-visual">
+            <div class="srv-visual-header">
+              <div class="srv-dot srv-dot-1"></div>
+              <div class="srv-dot srv-dot-2"></div>
+              <div class="srv-dot srv-dot-3"></div>
+              <span class="srv-visual-title">Power BI · Executive Dashboard</span>
+            </div>
+            <div class="srv-visual-body">
+              <div class="mock-kpi-grid">
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Total Revenue</div>
+                  <div class="mock-kpi-val">$482K</div>
+                  <div class="mock-kpi-sub" style="color:#50fa7b">↑ 28.4%</div>
+                </div>
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Net Profit</div>
+                  <div class="mock-kpi-val">$94K</div>
+                  <div class="mock-kpi-sub" style="color:#50fa7b">↑ 12.1%</div>
+                </div>
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Gross Margin</div>
+                  <div class="mock-kpi-val">44.3%</div>
+                  <div class="mock-kpi-sub" style="color:var(--blue-light)">↑ 2.1pp</div>
+                </div>
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Op. Expenses</div>
+                  <div class="mock-kpi-val">$120K</div>
+                  <div class="mock-kpi-sub" style="color:#f97316">↓ 3.2%</div>
+                </div>
+              </div>
+              <div style="margin-bottom:8px;font-family:var(--font-ui);font-size:11px;color:var(--text-3)">Revenue Trend — 12 Months</div>
+              <div class="mock-chart-bars">
+                <div class="mock-bar-col" style="height:50%"></div>
+                <div class="mock-bar-col" style="height:58%"></div>
+                <div class="mock-bar-col" style="height:54%"></div>
+                <div class="mock-bar-col" style="height:65%"></div>
+                <div class="mock-bar-col" style="height:62%"></div>
+                <div class="mock-bar-col" style="height:72%"></div>
+                <div class="mock-bar-col" style="height:68%"></div>
+                <div class="mock-bar-col" style="height:78%"></div>
+                <div class="mock-bar-col" style="height:82%"></div>
+                <div class="mock-bar-col" style="height:88%"></div>
+                <div class="mock-bar-col" style="height:92%"></div>
+                <div class="mock-bar-col" style="height:100%;opacity:1"></div>
+              </div>
+              <div class="mock-row"><span class="mock-row-label">Last Refreshed</span><span class="mock-row-badge badge-green">Live · 2h ago</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ══ 05 SQL ANALYSIS ══ -->
+      <article class="srv-item scroll-reveal" id="sql">
+        <div class="srv-item-number">05</div>
+        <div class="srv-item-inner">
+          <div class="srv-visual">
+            <div class="srv-visual-header">
+              <div class="srv-dot srv-dot-1"></div>
+              <div class="srv-dot srv-dot-2"></div>
+              <div class="srv-dot srv-dot-3"></div>
+              <span class="srv-visual-title">PostgreSQL · Sales Analytics</span>
+            </div>
+            <div class="srv-visual-body">
+              <div class="mock-code">
+                <div><span class="code-kw">SELECT</span> <span class="code-var">c.segment</span>,</div>
+                <div>&nbsp;&nbsp;<span class="code-fn">SUM</span>(<span class="code-var">o.order_value</span>) <span class="code-kw">AS</span> <span class="code-var">lifetime_value</span>,</div>
+                <div>&nbsp;&nbsp;<span class="code-fn">COUNT</span>(<span class="code-var">o.order_id</span>) <span class="code-kw">AS</span> <span class="code-var">total_orders</span>,</div>
+                <div>&nbsp;&nbsp;<span class="code-fn">NTILE</span>(<span class="code-num">4</span>) <span class="code-kw">OVER</span> (</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">ORDER BY</span> <span class="code-fn">SUM</span>(<span class="code-var">o.order_value</span>) <span class="code-kw">DESC</span></div>
+                <div>&nbsp;&nbsp;) <span class="code-kw">AS</span> <span class="code-var">value_quartile</span></div>
+                <div><span class="code-kw">FROM</span> <span class="code-var">customers c</span></div>
+                <div><span class="code-kw">JOIN</span> <span class="code-var">orders o</span> <span class="code-kw">ON</span> <span class="code-var">c.id</span> = <span class="code-var">o.customer_id</span></div>
+                <div><span class="code-kw">GROUP BY</span> <span class="code-var">c.segment</span></div>
+                <div><span class="code-cmt">/* 1,024,847 rows · 2.3s */</span></div>
+              </div>
+              <div class="mock-row"><span class="mock-row-label">Enterprise LTV</span><span class="mock-row-val" style="color:var(--blue-light)">$284,420</span></div>
+              <div class="mock-row"><span class="mock-row-label">Mid-Market LTV</span><span class="mock-row-val">$142,810</span></div>
+              <div class="mock-row"><span class="mock-row-label">SMB LTV</span><span class="mock-row-val">$34,200</span></div>
+              <div class="mock-row"><span class="mock-row-label">At-Risk Accounts</span><span class="mock-row-badge badge-red">180 flagged</span></div>
+            </div>
+          </div>
+
+          <div class="srv-info">
+            <div class="srv-cat-badge">🗄️ SQL</div>
+            <h2 class="srv-title">SQL Analysis & ETL</h2>
+            <p class="srv-tagline">"Unlocking the insights buried in your database."</p>
+            <p class="srv-desc">I write advanced SQL queries and build ETL pipelines that extract meaningful patterns from large financial datasets. From customer lifetime value models to operational efficiency reports — I turn your database into a competitive intelligence engine.</p>
+
+            <div class="srv-includes">
+              <div class="srv-includes-title">What's Included</div>
+              <div class="srv-includes-list">
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Complex multi-table queries with CTEs, window functions, and subqueries</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>ETL pipeline design — extract, transform, and load across systems</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Database performance optimisation — indexing, query tuning</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Customer segmentation and RFM models from raw transaction data</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Scheduled automated reports pushed to dashboards or spreadsheets</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Full query documentation for your internal team</span></div>
+              </div>
+            </div>
+
+            <div class="srv-metrics">
+              <div class="srv-metric"><div class="srv-metric-val">1M+</div><div class="srv-metric-label">Rows Analysed</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">$420K</div><div class="srv-metric-label">ARR Saved</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">2.3s</div><div class="srv-metric-label">Query Speed</div></div>
+            </div>
+
+            <div class="srv-stack-title">Tools Used</div>
+            <div class="srv-stack">
+              <span class="srv-tag">PostgreSQL</span>
+              <span class="srv-tag">MySQL</span>
+              <span class="srv-tag">SQL Server</span>
+              <span class="srv-tag">CTEs</span>
+              <span class="srv-tag">Window Functions</span>
+              <span class="srv-tag">Python ETL</span>
+            </div>
+            <a href="index.html#contact" class="btn-primary">Get Started →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ══ 06 PYTHON AUTOMATION ══ -->
+      <article class="srv-item scroll-reveal" id="automation" style="background:var(--navy-2)">
+        <div class="srv-item-number">06</div>
+        <div class="srv-item-inner reverse">
+          <div class="srv-info">
+            <div class="srv-cat-badge">🤖 Automation</div>
+            <h2 class="srv-title">Python Automation</h2>
+            <p class="srv-tagline">"If you're doing it manually every week, there's a script for that."</p>
+            <p class="srv-desc">I build custom Python automation systems that eliminate repetitive financial workflows — from invoice generation to bank reconciliation. My scripts run reliably in the background, freeing your team to focus on work that actually requires human judgement.</p>
+
+            <div class="srv-includes">
+              <div class="srv-includes-title">What's Included</div>
+              <div class="srv-includes-list">
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Automated invoice generation, PDF creation, and email dispatch</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Bank statement parsing and automated reconciliation</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Scheduled report generation with automatic distribution</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>API integrations — QuickBooks, Stripe, Xero, banking APIs</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Error handling, logging, and audit trail for every run</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Full documentation and handover training</span></div>
+              </div>
+            </div>
+
+            <div class="srv-metrics">
+              <div class="srv-metric"><div class="srv-metric-val">25h</div><div class="srv-metric-label">Saved / Month</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">0.1%</div><div class="srv-metric-label">Error Rate</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">6K+</div><div class="srv-metric-label">Invoices Run</div></div>
+            </div>
+
+            <div class="srv-stack-title">Tools Used</div>
+            <div class="srv-stack">
+              <span class="srv-tag">Python 3.11</span>
+              <span class="srv-tag">Pandas</span>
+              <span class="srv-tag">ReportLab</span>
+              <span class="srv-tag">smtplib</span>
+              <span class="srv-tag">SQLite</span>
+              <span class="srv-tag">Schedule</span>
+              <span class="srv-tag">APIs</span>
+            </div>
+            <a href="index.html#contact" class="btn-primary">Get Started →</a>
+          </div>
+
+          <div class="srv-visual">
+            <div class="srv-visual-header">
+              <div class="srv-dot srv-dot-1"></div>
+              <div class="srv-dot srv-dot-2"></div>
+              <div class="srv-dot srv-dot-3"></div>
+              <span class="srv-visual-title">invoice_automation.py · Terminal</span>
+            </div>
+            <div class="srv-visual-body">
+              <div class="mock-code">
+                <div><span class="code-kw">def</span> <span class="code-fn">run_monthly_pipeline</span>():</div>
+                <div>&nbsp;&nbsp;<span class="code-cmt"># Load CRM export</span></div>
+                <div>&nbsp;&nbsp;<span class="code-var">df</span> = pd.<span class="code-fn">read_csv</span>(<span class="code-str">'clients.csv'</span>)</div>
+                <div>&nbsp;&nbsp;<span class="code-cmt"># Generate 512 PDFs</span></div>
+                <div>&nbsp;&nbsp;<span class="code-kw">for</span> <span class="code-var">_, row</span> <span class="code-kw">in</span> <span class="code-var">df</span>.<span class="code-fn">iterrows</span>():</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">generate_invoice</span>(<span class="code-var">row</span>)</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">send_email</span>(<span class="code-var">row.email</span>)</div>
+                <div>&nbsp;&nbsp;<span class="code-fn">reconcile_payments</span>()</div>
+              </div>
+              <div style="background:var(--navy-4);border-radius:8px;padding:12px 14px;font-family:monospace;font-size:11.5px;line-height:1.9;">
+                <div style="color:#50fa7b">✓ Loaded 512 client records</div>
+                <div style="color:#50fa7b">✓ Generated 512 PDFs (4.2s)</div>
+                <div style="color:#50fa7b">✓ Sent 512 emails (18.4s)</div>
+                <div style="color:#f59e0b">⚠ 3 bounced → exceptions.log</div>
+                <div style="color:#50fa7b">✓ Reconciliation saved</div>
+                <div style="color:var(--blue-light)">✦ Done · 23.1s · Errors: 0.6%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ══ 07 BUSINESS INTELLIGENCE ══ -->
+      <article class="srv-item scroll-reveal" id="bi">
+        <div class="srv-item-number">07</div>
+        <div class="srv-item-inner">
+          <div class="srv-visual">
+            <div class="srv-visual-header">
+              <div class="srv-dot srv-dot-1"></div>
+              <div class="srv-dot srv-dot-2"></div>
+              <div class="srv-dot srv-dot-3"></div>
+              <span class="srv-visual-title">Tableau · Marketing ROI Tracker</span>
+            </div>
+            <div class="srv-visual-body">
+              <div style="font-family:var(--font-ui);font-size:11px;color:var(--text-3);margin-bottom:10px">ROI by Channel (Revenue / Spend)</div>
+              <div class="mock-bar-row">
+                <div class="mock-bar-header"><span>Email Marketing</span><span style="color:#50fa7b">6.2x</span></div>
+                <div class="mock-bar-track"><div class="mock-bar-fill" style="width:100%;background:linear-gradient(90deg,#50fa7b,#80d0a0)"></div></div>
+              </div>
+              <div class="mock-bar-row">
+                <div class="mock-bar-header"><span>SEO / Organic</span><span style="color:var(--blue-light)">5.3x</span></div>
+                <div class="mock-bar-track"><div class="mock-bar-fill" style="width:85%;background:linear-gradient(90deg,#c9a84c,#f0d080)"></div></div>
+              </div>
+              <div class="mock-bar-row">
+                <div class="mock-bar-header"><span>Social Media</span><span style="color:var(--blue-light)">4.1x</span></div>
+                <div class="mock-bar-track"><div class="mock-bar-fill" style="width:66%;background:linear-gradient(90deg,#b8932a,#e8c56b)"></div></div>
+              </div>
+              <div class="mock-bar-row">
+                <div class="mock-bar-header"><span>Google PPC</span><span style="color:#f59e0b">3.4x</span></div>
+                <div class="mock-bar-track"><div class="mock-bar-fill" style="width:55%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div>
+              </div>
+              <div class="mock-bar-row">
+                <div class="mock-bar-header"><span>Display Ads</span><span style="color:#f97316">2.5x</span></div>
+                <div class="mock-bar-track"><div class="mock-bar-fill" style="width:40%;background:linear-gradient(90deg,#f97316,#f59e0b)"></div></div>
+              </div>
+              <div class="mock-kpi-grid" style="margin-top:14px">
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Blended ROAS</div>
+                  <div class="mock-kpi-val">3.8x</div>
+                  <div class="mock-kpi-sub" style="color:#50fa7b">↑ from 3.1x</div>
+                </div>
+                <div class="mock-kpi">
+                  <div class="mock-kpi-label">Spend Reallocated</div>
+                  <div class="mock-kpi-val" style="font-size:18px">$200K</div>
+                  <div class="mock-kpi-sub" style="color:var(--blue-light)">Optimised</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="srv-info">
+            <div class="srv-cat-badge">🧠 BI</div>
+            <h2 class="srv-title">Business Intelligence</h2>
+            <p class="srv-tagline">"Your leadership team should know the answer before they ask the question."</p>
+            <p class="srv-desc">I deliver end-to-end BI strategy — from data warehouse architecture to executive reporting suites. Using Tableau and Power BI, I build intelligence layers that give every level of your organisation the right data at the right time.</p>
+
+            <div class="srv-includes">
+              <div class="srv-includes-title">What's Included</div>
+              <div class="srv-includes-list">
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>BI strategy assessment — identifying your highest-value data gaps</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Data warehouse design and ETL pipeline architecture</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Multi-channel performance dashboards (marketing, sales, ops, finance)</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Executive KPI scorecards with automated distribution</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Self-service analytics setup for non-technical stakeholders</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Ongoing optimisation and quarterly review</span></div>
+              </div>
+            </div>
+
+            <div class="srv-metrics">
+              <div class="srv-metric"><div class="srv-metric-val">3.8x</div><div class="srv-metric-label">ROAS Achieved</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">12</div><div class="srv-metric-label">Channels Tracked</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">30m</div><div class="srv-metric-label">Reporting Time</div></div>
+            </div>
+
+            <div class="srv-stack-title">Tools Used</div>
+            <div class="srv-stack">
+              <span class="srv-tag">Tableau</span>
+              <span class="srv-tag">Power BI</span>
+              <span class="srv-tag">PostgreSQL</span>
+              <span class="srv-tag">Python ETL</span>
+              <span class="srv-tag">Google Ads API</span>
+              <span class="srv-tag">Meta Ads API</span>
+            </div>
+            <a href="index.html#contact" class="btn-primary">Get Started →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ══ 08 SOFTWARE DEVELOPMENT ══ -->
+      <article class="srv-item scroll-reveal" id="software" style="background:var(--navy-2)">
+        <div class="srv-item-number">08</div>
+        <div class="srv-item-inner reverse">
+          <div class="srv-info">
+            <div class="srv-cat-badge">💡 Fintech</div>
+            <h2 class="srv-title">Software Development</h2>
+            <p class="srv-tagline">"Custom financial tools built for the way your business actually works."</p>
+            <p class="srv-desc">I design and build bespoke fintech software — from internal financial tools to full SaaS applications. Combining deep finance domain knowledge with modern development practices, I build platforms that solve real problems and scale with your business.</p>
+
+            <div class="srv-includes">
+              <div class="srv-includes-title">What's Included</div>
+              <div class="srv-includes-list">
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Custom financial management tools and internal dashboards</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>SaaS application design and MVP development</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>API-first architecture with third-party integrations</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>AI-powered financial analysis and forecasting modules</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Cloud deployment and scalable infrastructure</span></div>
+                <div class="srv-include-item"><div class="srv-include-check">✓</div><span>Ongoing maintenance, support, and feature development</span></div>
+              </div>
+            </div>
+
+            <div class="srv-metrics">
+              <div class="srv-metric"><div class="srv-metric-val">MVP</div><div class="srv-metric-label">In 4–6 Weeks</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">API</div><div class="srv-metric-label">First Design</div></div>
+              <div class="srv-metric"><div class="srv-metric-val">SaaS</div><div class="srv-metric-label">Ready</div></div>
+            </div>
+
+            <div class="srv-stack-title">Tools Used</div>
+            <div class="srv-stack">
+              <span class="srv-tag">Python</span>
+              <span class="srv-tag">FastAPI</span>
+              <span class="srv-tag">React</span>
+              <span class="srv-tag">PostgreSQL</span>
+              <span class="srv-tag">AWS / GCP</span>
+              <span class="srv-tag">Stripe API</span>
+            </div>
+            <a href="index.html#contact" class="btn-primary">Get Started →</a>
+          </div>
+
+          <div class="srv-visual">
+            <div class="srv-visual-header">
+              <div class="srv-dot srv-dot-1"></div>
+              <div class="srv-dot srv-dot-2"></div>
+              <div class="srv-dot srv-dot-3"></div>
+              <span class="srv-visual-title">SaaS FinTech Platform · Architecture</span>
+            </div>
+            <div class="srv-visual-body">
+              <div class="mock-code">
+                <div><span class="code-cmt"># FastAPI — Financial Analytics Endpoint</span></div>
+                <div><span class="code-kw">@app</span>.<span class="code-fn">get</span>(<span class="code-str">"/api/v1/analytics"</span>)</div>
+                <div><span class="code-kw">async def</span> <span class="code-fn">get_financial_summary</span>(</div>
+                <div>&nbsp;&nbsp;<span class="code-var">company_id</span>: <span class="code-fn">str</span>,</div>
+                <div>&nbsp;&nbsp;<span class="code-var">period</span>: <span class="code-fn">str</span> = <span class="code-str">"monthly"</span></div>
+                <div>):</div>
+                <div>&nbsp;&nbsp;<span class="code-var">data</span> = <span class="code-kw">await</span> <span class="code-fn">fetch_ledger</span>(<span class="code-var">company_id</span>)</div>
+                <div>&nbsp;&nbsp;<span class="code-kw">return</span> <span class="code-fn">analyze</span>(<span class="code-var">data</span>, <span class="code-var">period</span>)</div>
+              </div>
+              <div class="mock-row"><span class="mock-row-label">API Response Time</span><span class="mock-row-badge badge-green">48ms avg</span></div>
+              <div class="mock-row"><span class="mock-row-label">Uptime SLA</span><span class="mock-row-badge badge-green">99.9%</span></div>
+              <div class="mock-row"><span class="mock-row-label">Active Users</span><span class="mock-row-val">1,240+</span></div>
+              <div class="mock-row"><span class="mock-row-label">Deployment</span><span class="mock-row-badge badge-gold">AWS · Docker</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROCESS ═══════════════════════ -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-header scroll-reveal" style="text-align:center">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">My <span class="gradient-text">Process</span></h2>
+      <p class="section-desc" style="margin:0 auto">Every engagement follows the same disciplined process — no surprises, just results.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card scroll-reveal">
+        <div class="process-step-num">1</div>
+        <div class="process-title">Discovery Call</div>
+        <div class="process-desc">We discuss your business challenges, data landscape, goals, and timeline. I ask the right questions to scope the work accurately.</div>
+      </div>
+      <div class="process-card scroll-reveal" style="transition-delay:.1s">
+        <div class="process-step-num">2</div>
+        <div class="process-title">Proposal & Scope</div>
+        <div class="process-desc">I send a clear written proposal — deliverables, timeline, and pricing. No vague estimates or scope creep.</div>
+      </div>
+      <div class="process-card scroll-reveal" style="transition-delay:.2s">
+        <div class="process-step-num">3</div>
+        <div class="process-title">Build & Iterate</div>
+        <div class="process-desc">I work in focused sprints with regular check-ins. You see progress at every stage and can give feedback early.</div>
+      </div>
+      <div class="process-card scroll-reveal" style="transition-delay:.3s">
+        <div class="process-step-num">4</div>
+        <div class="process-title">Handover & Support</div>
+        <div class="process-desc">Full documentation, training session, and 30-day post-launch support. You own everything — code, data, and dashboards.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHY CHOOSE ME ═══════════════════════ -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-header scroll-reveal" style="text-align:center">
+      <div class="section-label">Why Awais</div>
+      <h2 class="section-title">The Difference That <span class="gradient-text">Matters</span></h2>
+      <p class="section-desc" style="margin:0 auto">Finance expertise and technical skills rarely coexist. I bring both.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card scroll-reveal">
+        <span class="why-icon">🎯</span>
+        <div class="why-title">Finance-First Thinking</div>
+        <div class="why-desc">Every dashboard, script, and query is designed with accounting principles in mind. I understand debits and credits as well as I understand Python — which means no technically correct but financially meaningless output.</div>
+      </div>
+      <div class="why-card scroll-reveal" style="transition-delay:.1s">
+        <span class="why-icon">⚡</span>
+        <div class="why-title">Speed Without Shortcuts</div>
+        <div class="why-desc">I deliver fast — most projects in 1–3 weeks — but never at the expense of accuracy. My work is audit-ready, documented, and built to last. You won't be fixing my mistakes six months later.</div>
+      </div>
+      <div class="why-card scroll-reveal" style="transition-delay:.2s">
+        <span class="why-icon">🔒</span>
+        <div class="why-title">Full Confidentiality</div>
+        <div class="why-desc">Your financial data is treated with the highest level of discretion. I sign NDAs on every engagement and follow strict data handling protocols. Your numbers never leave our agreed environment.</div>
+      </div>
+      <div class="why-card scroll-reveal" style="transition-delay:.3s">
+        <span class="why-icon">🌍</span>
+        <div class="why-title">Remote-Ready</div>
+        <div class="why-desc">Fully remote and async-friendly. I work across time zones and adapt to your communication preferences — Slack, email, or video. Distance has never reduced quality for any of my clients.</div>
+      </div>
+      <div class="why-card scroll-reveal" style="transition-delay:.4s">
+        <span class="why-icon">📐</span>
+        <div class="why-title">ACCA-Grounded Standards</div>
+        <div class="why-desc">My ACCA qualification means all financial work meets international standards — IFRS, IAS, and GAAP. You get professional-grade output, not just someone who knows Excel well.</div>
+      </div>
+      <div class="why-card scroll-reveal" style="transition-delay:.5s">
+        <span class="why-icon">🚀</span>
+        <div class="why-title">Long-Term Partnership</div>
+        <div class="why-desc">Most of my clients started with one project and stayed for years. I invest in understanding your business deeply so every subsequent project delivers more value than the last.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PRICING ═══════════════════════ -->
+<section class="pricing-section">
+  <div class="container">
+    <div class="section-header scroll-reveal" style="text-align:center">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Transparent <span class="gradient-text">Pricing</span></h2>
+      <p class="section-desc" style="margin:0 auto">No hourly billing surprises. Fixed-scope packages or retainers — your choice.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card scroll-reveal">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-name">One-Off Project</div>
+        <div class="pricing-desc">Perfect for a single report, dashboard, or automation script with clear scope.</div>
+        <div class="pricing-price">Custom<span> / project</span></div>
+        <div class="pricing-note">Quoted after discovery call · typically $300–$1,500</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Single deliverable — report, dashboard, or script</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>1–2 week turnaround</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Two rounds of revisions</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Full file and code ownership</span></div>
+          <div class="pricing-feature"><span class="pricing-cross">✗</span><span style="color:var(--text-3)">Ongoing support</span></div>
+          <div class="pricing-feature"><span class="pricing-cross">✗</span><span style="color:var(--text-3)">Priority response</span></div>
+        </div>
+        <a href="index.html#contact" class="btn-ghost" style="width:100%;justify-content:center">Get a Quote</a>
+      </div>
+
+      <div class="pricing-card featured scroll-reveal" style="transition-delay:.1s">
+        <div class="pricing-tier">Growth</div>
+        <div class="pricing-name">Monthly Retainer</div>
+        <div class="pricing-desc">Ongoing finance and analytics support — your part-time data and finance team.</div>
+        <div class="pricing-price">Custom<span> / month</span></div>
+        <div class="pricing-note">Scoped to your needs · typically $800–$3,000/mo</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Monthly bookkeeping & management accounts</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Dashboard maintenance and updates</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Ad-hoc analysis requests (up to 10h/mo)</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Priority 24h response time</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Quarterly strategy review call</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Unlimited revisions on retainer work</span></div>
+        </div>
+        <a href="index.html#contact" class="btn-primary" style="width:100%;justify-content:center">Start Retainer</a>
+      </div>
+
+      <div class="pricing-card scroll-reveal" style="transition-delay:.2s">
+        <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-name">Full Engagement</div>
+        <div class="pricing-desc">Large-scale BI infrastructure, software builds, or annual reporting packages.</div>
+        <div class="pricing-price">Custom<span> / scope</span></div>
+        <div class="pricing-note">Discovery required · multi-week or multi-month projects</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Full BI stack or software development</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Dedicated project management</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Team training and knowledge transfer</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>NDA and data handling agreement</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Post-launch support (3 months)</span></div>
+          <div class="pricing-feature"><span class="pricing-check">✓</span><span>Milestone-based payment schedule</span></div>
+        </div>
+        <a href="index.html#contact" class="btn-ghost" style="width:100%;justify-content:center">Let's Talk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header scroll-reveal" style="text-align:center">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common <span class="gradient-text">Questions</span></h2>
+    </div>
+    <div class="faq-list scroll-reveal">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How quickly can you start a project?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">For most projects I can start within 2–3 business days of signing off on scope. Larger enterprise engagements may need 1–2 weeks for proper onboarding. I keep limited client slots specifically so I can give every project the attention it deserves.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you work with businesses outside Pakistan?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Yes — the majority of my clients are based in the UK, US, UAE, and Europe. I work fully remote and adapt to your time zone for calls and deadlines. Distance has never been a barrier to quality work.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What accounting software do you support?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">I work with QuickBooks (Online and Desktop), Xero, Wave, and Excel-based systems. For data analytics and BI work I connect to virtually any source — SQL databases, Google Sheets, CSV exports, APIs, and cloud storage.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do you handle data security and confidentiality?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">I sign an NDA before accessing any client data. All files are handled in encrypted environments and deleted from my systems after project completion unless you request otherwise. I never share client data with third parties under any circumstances.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can I see examples of your past work before committing?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Yes — my portfolio page has detailed case studies for each service type. For more specific examples relevant to your industry or use case, just reach out and I'll share anonymised samples during our discovery call.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if I'm not happy with the deliverable?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Every project includes revision rounds — typically two for one-off projects and unlimited for retainer work. If after revisions you're still not satisfied, I offer a partial or full refund depending on the circumstances. Client satisfaction is non-negotiable for me.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA ═══════════════════════ -->
+<section class="srv-cta-section">
+  <div class="srv-cta-orb"></div>
+  <div class="container">
+    <div class="section-label scroll-reveal">Ready to Start?</div>
+    <h2 class="srv-cta-title scroll-reveal" style="transition-delay:.1s">
+      Let's Turn Your Data Into<br/><span class="gradient-text">Your Advantage</span>
+    </h2>
+    <p class="srv-cta-desc scroll-reveal" style="transition-delay:.2s">
+      Whether you need clean books, a live dashboard, or a fully automated finance workflow — the conversation starts with one message.
+    </p>
+    <div class="srv-cta-btns scroll-reveal" style="transition-delay:.3s">
+      <a href="index.html#contact" class="btn-primary">Start a Project</a>
+      <a href="portfolio.html" class="btn-ghost">View Case Studies →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-at">AT</span>
+          <span class="logo-name">Awais Tahir</span>
+        </div>
+        <p class="footer-tagline">Finance Professional · Data Analyst · Future Finance-Tech Founder</p>
+        <p class="footer-copy">© 2025 Awais Tahir · iamawaistahir.com · All Rights Reserved</p>
+      </div>
+      <div class="footer-links">
+        <div class="fl-col">
+          <div class="fl-title">Services</div>
+          <a href="#bookkeeping">Bookkeeping</a>
+          <a href="#reporting">Financial Reporting</a>
+          <a href="#analytics">Data Analytics</a>
+          <a href="#powerbi">Power BI</a>
+          <a href="#automation">Python Automation</a>
+          <a href="#bi">Business Intelligence</a>
+        </div>
+        <div class="fl-col">
+          <div class="fl-title">Quick Links</div>
+          <a href="about.html">About</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="index.html#blog">Insights</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Built with precision · iamawaistahir.com</span>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/iamawais1628/" target="_blank" aria-label="LinkedIn">in</a>
+        <a href="https://wa.me/923000889402" target="_blank" aria-label="WhatsApp">wa</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
+
+<script>
+  /* Navbar */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  /* Mobile menu */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    const spans = hamburger.querySelectorAll('span');
+    if (mobileMenu.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+    hamburger.querySelectorAll('span').forEach(s => { s.style.transform=''; s.style.opacity=''; });
+  }
+
+  /* Scroll reveal */
+  const revealEls = document.querySelectorAll('.scroll-reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* Reveal-up animations */
+  document.querySelectorAll('.reveal-up').forEach((el, i) => {
+    el.style.animationDelay = el.style.animationDelay || (i * 0.1) + 's';
+  });
+
+  /* FAQ accordion */
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
