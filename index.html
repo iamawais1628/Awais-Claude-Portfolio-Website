@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+<style>a.sc-arrow{text-decoration:none;display:inline-block;cursor:pointer;}</style>
 </head>
 <body>
 
@@ -28,7 +29,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="#blog">Insights</a></li>
@@ -44,7 +45,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <ul>
     <li><a href="about.html" onclick="closeMobile()">About</a></li>
-    <li><a href="services.html" onclick="closeMobile()">Services</a></li>
+    <li><a href="#services" onclick="closeMobile()">Services</a></li>
     <li><a href="#skills" onclick="closeMobile()">Skills</a></li>
     <li><a href="portfolio.html" onclick="closeMobile()">Portfolio</a></li>
     <li><a href="#blog" onclick="closeMobile()">Insights</a></li>
@@ -253,56 +254,56 @@
         <h3 class="sc-title">Bookkeeping & Accounting</h3>
         <p class="sc-desc">Accurate, timely bookkeeping and full-cycle accounting tailored to your business needs using QuickBooks and Excel.</p>
         <div class="sc-tags"><span>QuickBooks</span><span>Excel</span><span>GAAP</span></div>
-        <div class="sc-arrow">→</div>
+        <a href="services.html#bookkeeping" class="sc-arrow">→</a>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#059669;transition-delay:.08s">
         <div class="sc-glow"></div><div class="sc-icon">📋</div>
         <h3 class="sc-title">Financial Reporting</h3>
         <p class="sc-desc">Professional financial statements, P&L analysis, balance sheets, and management reports that tell the true story of your business.</p>
         <div class="sc-tags"><span>IFRS</span><span>P&L</span><span>Cash Flow</span></div>
-        <div class="sc-arrow">→</div>
+        <a href="services.html#financial-reporting" class="sc-arrow">→</a>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#7c3aed;transition-delay:.16s">
         <div class="sc-glow"></div><div class="sc-icon">🔍</div>
         <h3 class="sc-title">Data Analytics</h3>
         <p class="sc-desc">Transform raw business data into actionable insights with advanced statistical analysis and visual storytelling.</p>
         <div class="sc-tags"><span>Python</span><span>SQL</span><span>Pandas</span></div>
-        <div class="sc-arrow">→</div>
+        <a href="services.html#data-analytics" class="sc-arrow">→</a>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#f59e0b;transition-delay:.24s">
         <div class="sc-glow"></div><div class="sc-icon">📈</div>
         <h3 class="sc-title">Power BI Dashboards</h3>
         <p class="sc-desc">Interactive, real-time Power BI dashboards that bring your KPIs to life with beautiful visualizations and drill-down capability.</p>
         <div class="sc-tags"><span>Power BI</span><span>DAX</span><span>KPIs</span></div>
-        <div class="sc-arrow">→</div>
+        <a href="services.html#power-bi" class="sc-arrow">→</a>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#0891b2;transition-delay:.32s">
         <div class="sc-glow"></div><div class="sc-icon">🗄️</div>
         <h3 class="sc-title">SQL Analysis</h3>
         <p class="sc-desc">Deep database querying, complex joins, and ETL pipelines to extract meaningful patterns from large financial datasets.</p>
         <div class="sc-tags"><span>SQL</span><span>ETL</span><span>PostgreSQL</span></div>
-        <div class="sc-arrow">→</div>
+        <a href="services.html#sql-analysis" class="sc-arrow">→</a>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#10b981;transition-delay:.4s">
         <div class="sc-glow"></div><div class="sc-icon">🤖</div>
         <h3 class="sc-title">Python Automation</h3>
         <p class="sc-desc">Custom Python scripts that automate repetitive financial tasks — from report generation to data reconciliation — saving hours every week.</p>
         <div class="sc-tags"><span>Python</span><span>Automation</span><span>APIs</span></div>
-        <div class="sc-arrow">→</div>
+        <a href="services.html#python-automation" class="sc-arrow">→</a>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#8b5cf6;transition-delay:.48s">
         <div class="sc-glow"></div><div class="sc-icon">🧠</div>
         <h3 class="sc-title">Business Intelligence</h3>
         <p class="sc-desc">End-to-end BI strategy — from data warehouse design to executive reporting — so leadership always has the insight they need.</p>
         <div class="sc-tags"><span>Tableau</span><span>Strategy</span><span>Insights</span></div>
-        <div class="sc-arrow">→</div>
+        <a href="services.html#business-intelligence" class="sc-arrow">→</a>
       </div>
       <div class="service-card scroll-reveal" style="--accent:#f97316;transition-delay:.56s">
         <div class="sc-glow"></div><div class="sc-icon">💡</div>
         <h3 class="sc-title">Software Development</h3>
         <p class="sc-desc">Future-facing fintech software solutions — custom financial tools, SaaS applications, and intelligent platforms built for scale.</p>
         <div class="sc-tags"><span>SaaS</span><span>Fintech</span><span>AI-Powered</span></div>
-        <div class="sc-arrow">→</div>
+        <a href="services.html#software-development" class="sc-arrow">→</a>
       </div>
     </div>
   </div>
@@ -708,9 +709,8 @@
         <div class="fl-col">
           <div class="fl-title">Quick Links</div>
           <!-- ✅ FIX: footer about link updated to match renamed section id -->
-          <a href="about.html">About</a>
+          <a href="#about-section">About</a>
           <a href="portfolio.html">Portfolio</a>
-            <a href="services.html">Services</a>
           <a href="#blog">Insights</a>
           <a href="#contact">Contact</a>
         </div>
@@ -720,7 +720,7 @@
       <span>Built with precision · iamawaistahir.com</span>
       <div class="footer-socials">
         <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
-        <a href="https://wa.me/923000889402" target="_blank" aria-label="WhatsApp">wa</a>
+        <a href="https://wa.me/923001234567" target="_blank" aria-label="WhatsApp">wa</a>
       </div>
     </div>
   </div>
