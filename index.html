@@ -803,8 +803,8 @@ a.sc-arrow { text-decoration: none; display: inline-block; cursor: pointer; }
         </div>
       </div>
       <div class="contact-form-wrap scroll-reveal" style="transition-delay:.2s">
-        <form action="https://formsubmit.co/hafizmuhammadawais831@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+         <form id="contact-form">
+        <input type="hidden" name="_subject" value="New Portfolio Contact Message">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <div class="form-row">
@@ -888,7 +888,7 @@ a.sc-arrow { text-decoration: none; display: inline-block; cursor: pointer; }
 
 <!-- Scroll to top -->
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
-
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
