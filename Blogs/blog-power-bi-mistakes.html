@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7 Power BI Dashboard Mistakes That Make Your Data Useless | Awais Tahir</title>
+  <meta name="description" content="The 7 most common Power BI dashboard mistakes — and how to fix each one. A practical guide for finance and data professionals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" /><link rel="stylesheet" href="blog-post.css" />
+</head>
+<body>
+<nav id="navbar"><div class="nav-inner"><a href="index.html" class="nav-logo"><span class="logo-at">AT</span><span class="logo-name">Awais Tahir</span></a><ul class="nav-links"><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="skills.html">Skills</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="insights.html" style="color:var(--blue-light)">Insights</a></li><li><a href="index.html#contact" class="nav-cta">Let's Talk</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><ul><li><a href="about.html" onclick="closeMobile()">About</a></li><li><a href="services.html" onclick="closeMobile()">Services</a></li><li><a href="skills.html" onclick="closeMobile()">Skills</a></li><li><a href="portfolio.html" onclick="closeMobile()">Portfolio</a></li><li><a href="insights.html" onclick="closeMobile()">Insights</a></li><li><a href="index.html#contact" onclick="closeMobile()">Contact</a></li></ul></div>
+
+<section class="blog-hero">
+  <div class="blog-hero-orb bh-orb-1"></div><div class="blog-hero-orb bh-orb-2"></div>
+  <div class="container">
+    <div class="blog-breadcrumb"><a href="index.html">Home</a> › <a href="insights.html">Insights</a> › <span>Power BI</span></div>
+    <div class="blog-cat">📈 Power BI</div>
+    <h1 class="blog-title">7 Power BI Dashboard Mistakes That Make Your Data Useless</h1>
+    <div class="blog-meta-row">
+      <div class="blog-author"><div class="blog-author-avatar">AT</div><div><div class="blog-author-name">Awais Tahir</div><div class="blog-author-role">Finance Professional · Data Analyst</div></div></div>
+      <div class="blog-meta-sep"></div>
+      <div class="blog-meta-item">📅 April 14, 2025</div>
+      <div class="blog-meta-item">⏱ 6 min read</div>
+      <div class="blog-meta-item">👁 Power BI · DAX</div>
+    </div>
+    <div class="blog-tags"><span class="blog-tag">Power BI</span><span class="blog-tag">DAX</span><span class="blog-tag">KPIs</span><span class="blog-tag">Data Visualisation</span></div>
+  </div>
+</section>
+<div class="blog-banner" style="background:linear-gradient(135deg,#1a0a00 0%,#4a2800 50%,#f59e0b 100%)"><div class="blog-banner-emoji">📈</div></div>
+
+<section class="blog-body-section">
+  <div class="container">
+    <div class="blog-layout">
+      <article class="blog-content">
+
+        <div class="blog-summary">
+          <div class="blog-summary-title">⚡ Key Takeaways</div>
+          <ul>
+            <li>A dashboard that answers the wrong questions is worse than no dashboard at all</li>
+            <li>Most Power BI failures happen before a single visual is built — in the data model</li>
+            <li>The most impactful fix is almost always the simplest: define what decision each visual enables</li>
+            <li>Every KPI on your dashboard should have a target — a number without a benchmark is decoration</li>
+            <li>Mobile layout is not optional if your executives use phones</li>
+          </ul>
+        </div>
+
+        <h2>The Dashboard That Looked Amazing and Did Nothing</h2>
+        <p>A client came to me with a Power BI dashboard their previous developer had built. It had 14 pages, 80+ visuals, animated backgrounds, and a colour palette that would make a graphic designer proud. It also had zero impact on any decision the business made.</p>
+        <p>When I asked the CFO which visual she used most, she said: "Honestly, I just export the data to Excel and build my own table." The dashboard had every chart type Power BI offers. It had none of the answers she needed.</p>
+        <p>This is the most common Power BI failure pattern. Here are the 7 specific mistakes that cause it.</p>
+
+        <h2>Mistake 1 — Building Before Defining the Questions</h2>
+        <p>The most damaging mistake happens before you open Power BI Desktop. <strong>Building a dashboard without first defining what decisions it needs to enable.</strong></p>
+        <p>Before touching your data, sit with every stakeholder and ask: "What decision do you make weekly that would be better with better information?" Write down the specific questions. Every visual on the dashboard should directly answer one of those questions. If you can't name the decision a visual enables, delete it.</p>
+        <div class="blog-callout tip">
+          <div class="blog-callout-icon">✅</div>
+          <div class="blog-callout-body">
+            <div class="blog-callout-title">Fix</div>
+            <div class="blog-callout-text">Create a "Question Register" before building. List every business question the dashboard should answer, who asks it, and how often. Build exactly those answers — nothing else.</div>
+          </div>
+        </div>
+
+        <h2>Mistake 2 — A Broken Data Model</h2>
+        <p>Power BI is built on a column-store database engine. If your data model is wrong, <strong>every DAX measure you write will either be slow, incorrect, or both.</strong> The most common data model mistakes are: flat tables instead of a star schema, bidirectional relationships everywhere, and calculated columns doing what measures should do.</p>
+        <p>The correct structure is always a star schema: one or more fact tables (sales, expenses, orders) connected to dimension tables (dates, customers, products, accounts) with single-directional relationships.</p>
+        <div class="blog-code">
+          <div class="blog-code-header"><div class="blog-code-dots"><div class="blog-code-dot" style="background:#f97316"></div><div class="blog-code-dot" style="background:#f59e0b"></div><div class="blog-code-dot" style="background:#50fa7b"></div></div><span>Correct Star Schema Structure</span></div>
+          <pre><span class="cmt">-- Fact Tables (many rows, measures)</span>
+fact_Sales        [date_key, customer_key, product_key, revenue, cost]
+fact_Expenses     [date_key, account_key, amount, category]
+
+<span class="cmt">-- Dimension Tables (fewer rows, filters)</span>
+dim_Date          [date_key, year, month, quarter, week]
+dim_Customer      [customer_key, name, segment, region]
+dim_Product       [product_key, name, category, price]
+dim_Account       [account_key, name, type, department]
+
+<span class="cmt">-- Relationships: always one-to-many, single direction</span>
+<span class="fn">dim_Date</span> → <span class="kw">fact_Sales</span>        <span class="cmt">(1:*)</span>
+<span class="fn">dim_Customer</span> → <span class="kw">fact_Sales</span>    <span class="cmt">(1:*)</span></pre>
+        </div>
+
+        <h2>Mistake 3 — KPIs Without Targets</h2>
+        <p>Showing a revenue number of £482,000 means nothing in isolation. <strong>Is that good? Bad? On track?</strong> Without a target, a benchmark, or a prior period comparison, a number is just a number.</p>
+        <p>Every KPI card on your dashboard should show: the current value, the target or budget, the variance (actual minus target), and the trend direction. A green/red RAG status is acceptable only if the threshold logic is clearly defined and agreed with stakeholders.</p>
+
+        <h2>Mistake 4 — Wrong Chart for the Wrong Data</h2>
+        <p>Power BI offers 30+ visual types. Most should be used rarely or never. The chart type must match the analytical question being asked:</p>
+        <ul>
+          <li><strong>Trend over time</strong> → Line chart. Not a bar chart, not a scatter plot.</li>
+          <li><strong>Part-to-whole composition</strong> → Stacked bar or treemap. Not a pie chart with 8 slices.</li>
+          <li><strong>Comparing categories</strong> → Horizontal bar chart (sorted descending). Not a clustered column chart with 12 groups.</li>
+          <li><strong>Single KPI vs target</strong> → Card visual with conditional formatting, or a gauge. Not a line chart.</li>
+          <li><strong>Correlation between two measures</strong> → Scatter plot. Not a dual-axis line chart.</li>
+        </ul>
+
+        <h2>Mistake 5 — Overloaded Pages</h2>
+        <p>I see dashboards with 20+ visuals on a single page. The human brain cannot process 20 charts simultaneously. <strong>When everything is highlighted, nothing is highlighted.</strong></p>
+        <p>The rule is maximum 5–7 visuals per page for an executive dashboard, maximum 10–12 for an analytical drill-down page. If you have more to show, add a page — don't shrink the visuals until they're unreadable on a laptop screen.</p>
+
+        <h2>Mistake 6 — Ignoring Mobile Layout</h2>
+        <p>If any of your dashboard users view reports on a phone or tablet — and in 2025, most executives do — and you haven't configured the mobile layout in Power BI, they are seeing a zoomed-out version of your desktop report that requires pinching, scrolling, and squinting.</p>
+        <p>Power BI's mobile layout is a separate canvas you configure in View → Mobile Layout. Every report that will be used on mobile needs this configured separately.</p>
+
+        <h2>Mistake 7 — DAX Measures That Lie</h2>
+        <p>This is the most technically dangerous mistake. DAX is a powerful language, but it's also counterintuitive — particularly around filter context and time intelligence. The most common DAX errors I audit in client files:</p>
+        <ol>
+          <li><strong>CALCULATE with the wrong filter</strong> — removing filters you intended to keep</li>
+          <li><strong>Time intelligence on a non-marked date table</strong> — TOTALYTD and SAMEPERIODLASTYEAR silently produce wrong results if your date table isn't marked as a date table</li>
+          <li><strong>Dividing without handling blanks</strong> — a measure that returns BLANK() instead of 0 will corrupt totals in matrix visuals</li>
+        </ol>
+        <div class="blog-code">
+          <div class="blog-code-header"><div class="blog-code-dots"><div class="blog-code-dot" style="background:#f97316"></div><div class="blog-code-dot" style="background:#f59e0b"></div><div class="blog-code-dot" style="background:#50fa7b"></div></div><span>DAX — Safe Division Pattern</span></div>
+          <pre><span class="cmt">-- Wrong: returns BLANK() when denominator is 0</span>
+Gross Margin % = <span class="fn">DIVIDE</span>([Gross Profit], [Revenue])
+
+<span class="cmt">-- Correct: returns 0 when denominator is 0</span>
+Gross Margin % =
+<span class="fn">DIVIDE</span>(
+    [Gross Profit],
+    [Revenue],
+    <span class="num">0</span>   <span class="cmt">-- alternateResult: returned when denominator = 0</span>
+)
+
+<span class="cmt">-- Also correct: explicit BLANK() trap</span>
+Gross Margin % =
+<span class="kw">IF</span>(
+    [Revenue] = <span class="num">0</span>,
+    <span class="fn">BLANK</span>(),
+    <span class="fn">DIVIDE</span>([Gross Profit], [Revenue])
+)</pre>
+        </div>
+
+        <div class="blog-callout info">
+          <div class="blog-callout-icon">💡</div>
+          <div class="blog-callout-body">
+            <div class="blog-callout-title">Bottom line</div>
+            <div class="blog-callout-text">A great Power BI dashboard is 20% visual design and 80% data model and DAX quality. Fix the foundation first, then worry about the colours.</div>
+          </div>
+        </div>
+
+        <div class="blog-divider"></div>
+        <div class="blog-cta-banner">
+          <div class="blog-cta-text">
+            <h3>Need a Power BI Dashboard?</h3>
+            <p>I build executive Power BI dashboards that actually get used — live data, correct DAX, mobile-ready, and designed around the decisions your team makes daily.</p>
+          </div>
+          <div class="blog-cta-btns">
+            <a href="index.html#contact" class="btn-primary">Get a Quote →</a>
+            <a href="services.html#powerbi" class="btn-ghost">View Service</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="blog-sidebar">
+        <div class="blog-toc">
+          <div class="blog-toc-title">Table of Contents</div>
+          <ul class="blog-toc-list">
+            <li><a href="#" onclick="return false">The Dashboard That Did Nothing</a></li>
+            <li><a href="#" onclick="return false">Mistake 1 — No Questions Defined</a></li>
+            <li><a href="#" onclick="return false">Mistake 2 — Broken Data Model</a></li>
+            <li><a href="#" onclick="return false">Mistake 3 — KPIs Without Targets</a></li>
+            <li><a href="#" onclick="return false">Mistake 4 — Wrong Chart Type</a></li>
+            <li><a href="#" onclick="return false">Mistake 5 — Overloaded Pages</a></li>
+            <li><a href="#" onclick="return false">Mistake 6 — No Mobile Layout</a></li>
+            <li><a href="#" onclick="return false">Mistake 7 — DAX Errors</a></li>
+          </ul>
+        </div>
+        <div class="blog-sidebar-author">
+          <div class="bsa-avatar">AT</div>
+          <div class="bsa-name">Awais Tahir</div>
+          <div class="bsa-role">Finance Professional · Data Analyst</div>
+          <div class="bsa-desc">Building Power BI dashboards that replace spreadsheet reporting and drive faster, better decisions.</div>
+          <a href="about.html" class="btn-ghost" style="width:100%;justify-content:center;font-size:13px;padding:10px">View Profile</a>
+        </div>
+        <div class="blog-related-sidebar">
+          <div class="blog-related-sidebar-title">Related Articles</div>
+          <a href="blog-ifrs-financial-statements.html" class="brs-item"><div class="brs-icon" style="background:linear-gradient(135deg,#3d2b00,#c9a84c)">📊</div><div><div class="brs-title">Complete Guide to IFRS Financial Statements</div><div class="brs-cat">Financial Reporting</div></div></a>
+          <a href="blog-sql-window-functions.html" class="brs-item"><div class="brs-icon" style="background:linear-gradient(135deg,#1a1a4a,#7c3aed)">🗄️</div><div><div class="brs-title">SQL Window Functions for Finance Analysts</div><div class="brs-cat">Data Analytics</div></div></a>
+          <a href="blog-customer-lifetime-value.html" class="brs-item"><div class="brs-icon" style="background:linear-gradient(135deg,#0a1a3a,#1a5cd4)">🎯</div><div><div class="brs-title">How to Calculate Customer LTV</div><div class="brs-cat">Data Analytics</div></div></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="blog-related-section">
+  <div class="container">
+    <div class="section-header scroll-reveal" style="margin-bottom:36px"><div class="section-label">Keep Reading</div><h2 class="section-title">More <span class="gradient-text">Articles</span></h2></div>
+    <div class="blog-related-grid">
+      <a href="blog-ifrs-financial-statements.html" class="brel-card scroll-reveal"><div class="brel-img" style="background:linear-gradient(135deg,#1a1a0a,#3d2b00,#c9a84c)">📊</div><div class="brel-body"><div class="brel-cat">Financial Reporting</div><div class="brel-title">The Complete Guide to IFRS Financial Statements for SMEs</div><div class="brel-link">Read Article →</div></div></a>
+      <a href="blog-sql-window-functions.html" class="brel-card scroll-reveal" style="transition-delay:.1s"><div class="brel-img" style="background:linear-gradient(135deg,#080818,#1a1a4a,#7c3aed)">🗄️</div><div class="brel-body"><div class="brel-cat">Data Analytics</div><div class="brel-title">SQL Window Functions Every Finance Analyst Should Know</div><div class="brel-link">Read Article →</div></div></a>
+      <a href="blog-cash-flow-management.html" class="brel-card scroll-reveal" style="transition-delay:.2s"><div class="brel-img" style="background:linear-gradient(135deg,#0a080a,#2d0a1a,#be185d)">💰</div><div class="brel-body"><div class="brel-cat">Business Finance</div><div class="brel-title">Why Profitable Businesses Still Run Out of Cash</div><div class="brel-link">Read Article →</div></div></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div class="footer-inner"><div class="footer-brand"><div class="footer-logo"><span class="logo-at">AT</span><span class="logo-name">Awais Tahir</span></div><p class="footer-tagline">Finance Professional · Data Analyst · Future Finance-Tech Founder</p><p class="footer-copy">© 2025 Awais Tahir · iamawaistahir.com · All Rights Reserved</p></div><div class="footer-links"><div class="fl-col"><div class="fl-title">Quick Links</div><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="insights.html">All Articles</a><a href="index.html#contact">Contact</a></div><div class="fl-col"><div class="fl-title">More Articles</div><a href="blog-ifrs-financial-statements.html">IFRS Guide</a><a href="blog-sql-window-functions.html">SQL Functions</a><a href="blog-pandas-financial-data.html">Pandas Guide</a><a href="blog-cash-flow-management.html">Cash Flow</a></div></div></div><div class="footer-bottom"><span>Built with precision · iamawaistahir.com</span><div class="footer-socials"><a href="https://www.linkedin.com/in/iamawais1628/" target="_blank">in</a><a href="https://wa.me/923000889402" target="_blank">wa</a></div></div></div></footer>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>const nb=document.getElementById('navbar');window.addEventListener('scroll',()=>{nb.classList.toggle('scrolled',window.scrollY>40);document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});const hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu');hb.addEventListener('click',()=>{mm.classList.toggle('open');const s=hb.querySelectorAll('span');if(mm.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}});function closeMobile(){mm.classList.remove('open');hb.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';})}const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.scroll-reveal').forEach(el=>obs.observe(el));</script>
+</body></html>
