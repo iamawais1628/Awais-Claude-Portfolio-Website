@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights | Awais Tahir — Finance & Data Analytics Blog</title>
+  <meta name="description" content="Finance, data analytics, Power BI, Python, and business intelligence articles by Awais Tahir." />
+  <meta name="author" content="Awais Tahir" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .ins-hero{padding:150px 0 80px;position:relative;overflow:hidden;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.1) 0%,transparent 65%)}
+    .ins-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%)}
+    .ins-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+    .ins-orb-1{width:600px;height:600px;top:-200px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(201,168,76,.14) 0%,transparent 65%)}
+    .ins-orb-2{width:300px;height:300px;bottom:0;left:-100px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 65%)}
+    .ins-orb-3{width:260px;height:260px;bottom:0;right:-80px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 65%)}
+    .ins-hero .container{position:relative;z-index:2}
+    .ins-hero-title{font-family:var(--font-display);font-size:clamp(48px,7vw,82px);font-weight:700;line-height:1.08;margin-bottom:20px;color:var(--text-1)}
+    .ins-hero-sub{font-size:18px;color:var(--text-2);max-width:560px;margin:0 auto 36px;line-height:1.75}
+    .ins-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:48px;padding-top:36px;border-top:1px solid var(--border)}
+    .ins-stat{text-align:center}
+    .ins-stat-num{font-family:var(--font-display);font-size:38px;font-weight:700;background:linear-gradient(135deg,#f0d080,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .ins-stat-label{font-family:var(--font-ui);font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:1.5px;margin-top:5px}
+    .ins-controls{padding:20px 0;background:var(--navy-2);border-bottom:1px solid var(--border);position:sticky;top:72px;z-index:90}
+    .ins-controls-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .ins-filter-tabs{display:flex;gap:8px;flex-wrap:wrap}
+    .ins-filter-btn{padding:8px 18px;border-radius:100px;font-family:var(--font-ui);font-size:12px;font-weight:600;border:1px solid var(--border);background:var(--navy-3);color:var(--text-3);cursor:pointer;transition:all .2s;letter-spacing:.3px}
+    .ins-filter-btn:hover{color:var(--text-2);border-color:rgba(201,168,76,.3)}
+    .ins-filter-btn.active{background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(201,168,76,.08));border-color:var(--blue-light);color:var(--blue-light)}
+    .ins-search-wrap{position:relative}
+    .ins-search{background:var(--navy-3);border:1px solid var(--border);border-radius:8px;padding:9px 16px 9px 38px;color:var(--text-1);font-family:var(--font-body);font-size:14px;outline:none;width:220px;transition:border-color .2s}
+    .ins-search:focus{border-color:var(--blue-light)}
+    .ins-search::placeholder{color:var(--text-3)}
+    .ins-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--text-3);pointer-events:none}
+    .ins-grid-section{padding:60px 0 80px}
+    .ins-results-label{font-family:var(--font-ui);font-size:13px;color:var(--text-3);margin-bottom:28px}
+    .ins-results-label span{color:var(--blue-light);font-weight:600}
+    .ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .ins-card{background:var(--navy-3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .35s ease;display:flex;flex-direction:column}
+    .ins-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.3);box-shadow:0 20px 60px rgba(201,168,76,.08)}
+    .ins-card-img{height:190px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+    .ins-cat-badge{position:absolute;top:14px;left:14px;background:rgba(8,8,8,.75);border:1px solid rgba(201,168,76,.25);border-radius:100px;font-family:var(--font-ui);font-size:10px;font-weight:600;padding:4px 12px;text-transform:uppercase;letter-spacing:1px;color:var(--blue-light)}
+    .ins-card-emoji{font-size:52px;filter:drop-shadow(0 0 18px rgba(255,255,255,.2))}
+    .ins-card-body{padding:22px;flex:1;display:flex;flex-direction:column}
+    .ins-meta{display:flex;gap:8px;align-items:center;font-family:var(--font-ui);font-size:11px;color:var(--text-3);margin-bottom:10px}
+    .ins-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--text-3)}
+    .ins-card-title{font-family:var(--font-ui);font-weight:700;font-size:16px;line-height:1.4;color:var(--text-1);margin-bottom:10px}
+    .ins-card-excerpt{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:18px;flex:1}
+    .ins-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+    .ins-card-tags{display:flex;gap:6px;flex-wrap:wrap}
+    .ins-tag{font-size:10px;padding:2px 8px;border-radius:5px;background:rgba(201,168,76,.08);color:var(--blue-light);font-family:var(--font-ui);border:1px solid var(--border)}
+    .ins-read-link{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--blue-light);text-decoration:none;white-space:nowrap;transition:gap .2s;display:inline-flex;align-items:center;gap:4px}
+    .ins-read-link:hover{gap:8px}
+    .ins-card.featured{grid-column:span 2;flex-direction:row}
+    .ins-card.featured .ins-card-img{height:auto;min-height:260px;width:280px;flex-shrink:0}
+    .ins-card.featured .ins-card-title{font-size:20px}
+    .ins-card.featured .ins-card-excerpt{font-size:15px}
+    .ins-no-results{text-align:center;padding:60px 20px;color:var(--text-3);font-family:var(--font-ui);font-size:16px;grid-column:1/-1;display:none}
+    .ins-no-results.show{display:block}
+    .ins-load-more{text-align:center;margin-top:52px}
+    .ins-newsletter{padding:72px 0;background:var(--navy-2);text-align:center;position:relative;overflow:hidden}
+    .ins-newsletter-orb{position:absolute;width:500px;height:500px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 65%);pointer-events:none}
+    .ins-newsletter .container{position:relative;z-index:2}
+    .ins-newsletter-title{font-family:var(--font-display);font-size:clamp(30px,4vw,48px);font-weight:700;color:var(--text-1);margin-bottom:14px}
+    .ins-newsletter-desc{font-size:16px;color:var(--text-2);max-width:480px;margin:0 auto 32px;line-height:1.75}
+    .ins-newsletter-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:480px;margin:0 auto}
+    .ins-newsletter-input{flex:1;min-width:220px;background:var(--navy-3);border:1px solid var(--border);border-radius:8px;padding:13px 18px;color:var(--text-1);font-family:var(--font-body);font-size:15px;outline:none;transition:border-color .2s}
+    .ins-newsletter-input:focus{border-color:var(--blue-light)}
+    .ins-newsletter-input::placeholder{color:var(--text-3)}
+    .ins-newsletter-note{font-size:12px;color:var(--text-3);margin-top:12px;font-family:var(--font-ui)}
+    @media(max-width:960px){.ins-grid{grid-template-columns:1fr 1fr}.ins-card.featured{grid-column:span 2;flex-direction:column}.ins-card.featured .ins-card-img{width:100%;height:200px}}
+    @media(max-width:640px){.ins-hero{padding:120px 0 60px}.ins-stats{gap:24px}.ins-grid{grid-template-columns:1fr}.ins-card.featured{grid-column:span 1}.ins-controls-inner{flex-direction:column;align-items:flex-start}.ins-search{width:100%}}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-at">AT</span>
+      <span class="logo-name">Awais Tahir</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="insights.html" style="color:var(--blue-light)">Insights</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html" onclick="closeMobile()">About</a></li>
+    <li><a href="services.html" onclick="closeMobile()">Services</a></li>
+    <li><a href="skills.html" onclick="closeMobile()">Skills</a></li>
+    <li><a href="portfolio.html" onclick="closeMobile()">Portfolio</a></li>
+    <li><a href="insights.html" onclick="closeMobile()">Insights</a></li>
+    <li><a href="index.html#contact" onclick="closeMobile()">Contact</a></li>
+  </ul>
+</div>
+
+<section class="ins-hero">
+  <div class="ins-orb ins-orb-1"></div>
+  <div class="ins-orb ins-orb-2"></div>
+  <div class="ins-orb ins-orb-3"></div>
+  <div class="container">
+    <div class="section-label reveal-up">Finance · Analytics · Technology</div>
+    <h1 class="ins-hero-title reveal-up" style="animation-delay:.1s">Insights &amp; <span class="gradient-text">Articles</span></h1>
+    <p class="ins-hero-sub reveal-up" style="animation-delay:.2s">Practical finance and data insights — written for business owners, analysts, and anyone who wants to make smarter decisions with numbers.</p>
+    <div class="hero-actions reveal-up" style="animation-delay:.3s;justify-content:center;">
+      <a href="index.html#contact" class="btn-primary">Work With Me</a>
+      <a href="portfolio.html" class="btn-ghost">See Portfolio →</a>
+    </div>
+    <div class="ins-stats reveal-up" style="animation-delay:.45s">
+      <div class="ins-stat"><div class="ins-stat-num">9+</div><div class="ins-stat-label">Articles Published</div></div>
+      <div class="ins-stat"><div class="ins-stat-num">5</div><div class="ins-stat-label">Topic Categories</div></div>
+      <div class="ins-stat"><div class="ins-stat-num">Weekly</div><div class="ins-stat-label">New Articles</div></div>
+      <div class="ins-stat"><div class="ins-stat-num">Free</div><div class="ins-stat-label">Always</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="ins-controls">
+  <div class="container">
+    <div class="ins-controls-inner">
+      <div class="ins-filter-tabs">
+        <button class="ins-filter-btn active" data-filter="all">All Articles</button>
+        <button class="ins-filter-btn" data-filter="financial-reporting">Financial Reporting</button>
+        <button class="ins-filter-btn" data-filter="data-analytics">Data Analytics</button>
+        <button class="ins-filter-btn" data-filter="power-bi">Power BI</button>
+        <button class="ins-filter-btn" data-filter="python">Python</button>
+        <button class="ins-filter-btn" data-filter="business">Business</button>
+      </div>
+      <div class="ins-search-wrap">
+        <span class="ins-search-icon">🔍</span>
+        <input type="text" class="ins-search" id="insSearch" placeholder="Search articles..." />
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ins-grid-section">
+  <div class="container">
+    <div class="ins-results-label">Showing <span id="resultCount">6</span> articles</div>
+
+    <div class="ins-grid" id="insGrid">
+
+      <!--
+      ╔══════════════════════════════════════════════════╗
+      ║  HOW TO ADD A NEW BLOG — step by step:          ║
+      ║  1. Copy any <article class="ins-card"> block   ║
+      ║  2. Change data-category to match a filter tab  ║
+      ║     Options: financial-reporting / data-analytics║
+      ║              power-bi / python / business        ║
+      ║  3. Change data-title to keywords for search    ║
+      ║  4. Update gradient in style="" on ins-card-img ║
+      ║  5. Update ins-cat-badge text                   ║
+      ║  6. Update ins-card-emoji                       ║
+      ║  7. Update ins-date and ins-read-time           ║
+      ║  8. Update ins-card-title                       ║
+      ║  9. Update ins-card-excerpt                     ║
+      ║  10. Update href on ins-read-link               ║
+      ║      → point to blog-[your-slug].html           ║
+      ║  ADD NEW BLOGS AT THE BOTTOM OF THIS LIST       ║
+      ╚══════════════════════════════════════════════════╝
+      -->
+
+      <!-- BLOG 01 — Featured (spans 2 columns) -->
+      <article class="ins-card featured scroll-reveal"
+               data-category="financial-reporting"
+               data-title="ifrs financial statements guide sme">
+        <div class="ins-card-img" style="background:linear-gradient(135deg,#1a1a0a 0%,#3d2b00 50%,#c9a84c 100%)">
+          <div class="ins-cat-badge">Financial Reporting</div>
+          <div class="ins-card-emoji">📊</div>
+        </div>
+        <div class="ins-card-body">
+          <div class="ins-meta">
+            <span class="ins-date">April 18, 2025</span>
+            <div class="ins-meta-dot"></div>
+            <span class="ins-read-time">8 min read</span>
+            <div class="ins-meta-dot"></div>
+            <span>IFRS</span>
+          </div>
+          <h2 class="ins-card-title">The Complete Guide to IFRS Financial Statements for SMEs — What Every Business Owner Must Know</h2>
+          <p class="ins-card-excerpt">Most small business owners hand their numbers to an accountant and never look at the output. That is a costly mistake. Understanding your IFRS financial statements — the balance sheet, income statement, cash flow, and equity statement — is the difference between running your business and being run by it.</p>
+          <div class="ins-card-footer">
+            <div class="ins-card-tags">
+              <span class="ins-tag">IFRS</span>
+              <span class="ins-tag">Balance Sheet</span>
+              <span class="ins-tag">P&L</span>
+            </div>
+            <a href="blog-ifrs-financial-statements.html" class="ins-read-link">Read Article →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 02 -->
+      <article class="ins-card scroll-reveal" style="transition-delay:.08s"
+               data-category="power-bi"
+               data-title="power bi dashboard mistakes kpi design">
+        <div class="ins-card-img" style="background:linear-gradient(135deg,#1a0a00 0%,#4a2800 50%,#f59e0b 100%)">
+          <div class="ins-cat-badge">Power BI</div>
+          <div class="ins-card-emoji">📈</div>
+        </div>
+        <div class="ins-card-body">
+          <div class="ins-meta">
+            <span class="ins-date">April 14, 2025</span>
+            <div class="ins-meta-dot"></div>
+            <span class="ins-read-time">6 min read</span>
+          </div>
+          <h2 class="ins-card-title">7 Power BI Dashboard Mistakes That Make Your Data Useless</h2>
+          <p class="ins-card-excerpt">A beautiful dashboard that answers the wrong questions is worse than no dashboard at all. Here are the 7 most common Power BI mistakes I see in client dashboards — and exactly how to fix each one.</p>
+          <div class="ins-card-footer">
+            <div class="ins-card-tags"><span class="ins-tag">Power BI</span><span class="ins-tag">DAX</span><span class="ins-tag">KPIs</span></div>
+            <a href="blog-power-bi-mistakes.html" class="ins-read-link">Read Article →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 03 -->
+      <article class="ins-card scroll-reveal" style="transition-delay:.16s"
+               data-category="data-analytics"
+               data-title="sql window functions finance analyst examples">
+        <div class="ins-card-img" style="background:linear-gradient(135deg,#080818 0%,#1a1a4a 50%,#7c3aed 100%)">
+          <div class="ins-cat-badge">Data Analytics</div>
+          <div class="ins-card-emoji">🗄️</div>
+        </div>
+        <div class="ins-card-body">
+          <div class="ins-meta">
+            <span class="ins-date">April 10, 2025</span>
+            <div class="ins-meta-dot"></div>
+            <span class="ins-read-time">9 min read</span>
+          </div>
+          <h2 class="ins-card-title">SQL Window Functions Every Finance Analyst Should Know — With Real Financial Examples</h2>
+          <p class="ins-card-excerpt">Most SQL tutorials teach window functions with abstract examples. This guide uses real finance scenarios — running totals, period-over-period comparisons, customer ranking, and rolling averages — that you can apply in your next analysis.</p>
+          <div class="ins-card-footer">
+            <div class="ins-card-tags"><span class="ins-tag">SQL</span><span class="ins-tag">Analytics</span><span class="ins-tag">Finance</span></div>
+            <a href="blog-sql-window-functions.html" class="ins-read-link">Read Article →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 04 -->
+      <article class="ins-card scroll-reveal" style="transition-delay:.24s"
+               data-category="python"
+               data-title="python pandas financial data cleaning quickbooks xero">
+        <div class="ins-card-img" style="background:linear-gradient(135deg,#080d08 0%,#0d2d0d 50%,#059669 100%)">
+          <div class="ins-cat-badge">Python</div>
+          <div class="ins-card-emoji">🐍</div>
+        </div>
+        <div class="ins-card-body">
+          <div class="ins-meta">
+            <span class="ins-date">April 6, 2025</span>
+            <div class="ins-meta-dot"></div>
+            <span class="ins-read-time">7 min read</span>
+          </div>
+          <h2 class="ins-card-title">Cleaning Messy Financial Data with Python Pandas — A Step-by-Step Walkthrough</h2>
+          <p class="ins-card-excerpt">Raw financial data exports from QuickBooks, Xero, or Excel are almost always messy. Missing values, inconsistent formats, duplicate entries, wrong date types. This guide shows you exactly how to fix all of it with Pandas in under 50 lines of code.</p>
+          <div class="ins-card-footer">
+            <div class="ins-card-tags"><span class="ins-tag">Python</span><span class="ins-tag">Pandas</span><span class="ins-tag">Data Cleaning</span></div>
+            <a href="blog-pandas-financial-data.html" class="ins-read-link">Read Article →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 05 -->
+      <article class="ins-card scroll-reveal" style="transition-delay:.32s"
+               data-category="business"
+               data-title="cash flow management profitable business runs out of cash">
+        <div class="ins-card-img" style="background:linear-gradient(135deg,#0a080a 0%,#2d0a1a 50%,#be185d 100%)">
+          <div class="ins-cat-badge">Business Finance</div>
+          <div class="ins-card-emoji">💰</div>
+        </div>
+        <div class="ins-card-body">
+          <div class="ins-meta">
+            <span class="ins-date">April 2, 2025</span>
+            <div class="ins-meta-dot"></div>
+            <span class="ins-read-time">5 min read</span>
+          </div>
+          <h2 class="ins-card-title">Why Profitable Businesses Still Run Out of Cash — And How to Fix It</h2>
+          <p class="ins-card-excerpt">Profit and cash are not the same thing. This is the single most misunderstood concept in small business finance. I have seen profitable companies collapse because of cash flow. Here is a clear explanation and a practical 3-step framework to fix it.</p>
+          <div class="ins-card-footer">
+            <div class="ins-card-tags"><span class="ins-tag">Cash Flow</span><span class="ins-tag">Business</span><span class="ins-tag">Finance</span></div>
+            <a href="blog-cash-flow-management.html" class="ins-read-link">Read Article →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 06 -->
+      <article class="ins-card scroll-reveal" style="transition-delay:.4s"
+               data-category="data-analytics"
+               data-title="customer lifetime value ltv sql python calculation">
+        <div class="ins-card-img" style="background:linear-gradient(135deg,#080a10 0%,#0a1a3a 50%,#1a5cd4 100%)">
+          <div class="ins-cat-badge">Data Analytics</div>
+          <div class="ins-card-emoji">🎯</div>
+        </div>
+        <div class="ins-card-body">
+          <div class="ins-meta">
+            <span class="ins-date">March 28, 2025</span>
+            <div class="ins-meta-dot"></div>
+            <span class="ins-read-time">10 min read</span>
+          </div>
+          <h2 class="ins-card-title">How to Calculate Customer Lifetime Value (LTV) Using SQL and Python — Full Worked Example</h2>
+          <p class="ins-card-excerpt">LTV is the single most important number in any subscription or repeat-purchase business. Most companies either do not calculate it or calculate it wrong. This article walks through a complete LTV model with real SQL queries and Python code you can adapt immediately.</p>
+          <div class="ins-card-footer">
+            <div class="ins-card-tags"><span class="ins-tag">LTV</span><span class="ins-tag">SQL</span><span class="ins-tag">Python</span></div>
+            <a href="blog-customer-lifetime-value.html" class="ins-read-link">Read Article →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ADD NEW BLOGS HERE — copy any article block above and paste below this comment -->
+
+      <div class="ins-no-results" id="noResults">No articles found. Try a different keyword or category.</div>
+    </div>
+
+    <div class="ins-load-more" id="loadMoreWrap" style="display:none">
+      <button class="btn-ghost" id="loadMoreBtn" onclick="loadMore()">Load More Articles</button>
+    </div>
+  </div>
+</section>
+
+<section class="ins-newsletter">
+  <div class="ins-newsletter-orb"></div>
+  <div class="container">
+    <div class="section-label scroll-reveal">Stay Updated</div>
+    <h2 class="ins-newsletter-title scroll-reveal" style="transition-delay:.1s">Get New Articles <span class="gradient-text">In Your Inbox</span></h2>
+    <p class="ins-newsletter-desc scroll-reveal" style="transition-delay:.2s">Weekly finance and data insights — practical, jargon-free, and directly applicable to your business. No spam, ever.</p>
+    <div class="ins-newsletter-form scroll-reveal" style="transition-delay:.3s">
+      <input type="email" class="ins-newsletter-input" placeholder="your@email.com" id="newsletterEmail" />
+      <button class="btn-primary" onclick="subscribeNewsletter()">Subscribe Free</button>
+    </div>
+    <p class="ins-newsletter-note">Join 500+ readers · Unsubscribe anytime · No spam</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-at">AT</span><span class="logo-name">Awais Tahir</span></div>
+        <p class="footer-tagline">Finance Professional · Data Analyst · Future Finance-Tech Founder</p>
+        <p class="footer-copy">© 2025 Awais Tahir · iamawaistahir.com · All Rights Reserved</p>
+      </div>
+      <div class="footer-links">
+        <div class="fl-col">
+          <div class="fl-title">Categories</div>
+          <a href="#" onclick="filterByCategory('financial-reporting');return false;">Financial Reporting</a>
+          <a href="#" onclick="filterByCategory('data-analytics');return false;">Data Analytics</a>
+          <a href="#" onclick="filterByCategory('power-bi');return false;">Power BI</a>
+          <a href="#" onclick="filterByCategory('python');return false;">Python</a>
+          <a href="#" onclick="filterByCategory('business');return false;">Business Finance</a>
+        </div>
+        <div class="fl-col">
+          <div class="fl-title">Quick Links</div>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Built with precision · iamawaistahir.com</span>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/iamawais1628/" target="_blank" aria-label="LinkedIn">in</a>
+        <a href="https://wa.me/923000889402" target="_blank" aria-label="WhatsApp">wa</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+  });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    const spans = hamburger.querySelectorAll('span');
+    if (mobileMenu.classList.contains('open')) {
+      spans[0].style.transform='rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity='0';
+      spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+    } else { spans.forEach(s=>{s.style.transform='';s.style.opacity='';}); }
+  });
+  function closeMobile(){mobileMenu.classList.remove('open');hamburger.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';}); }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.scroll-reveal').forEach(el => obs.observe(el));
+  document.querySelectorAll('.reveal-up').forEach((el,i) => { if (!el.style.animationDelay) el.style.animationDelay=(i*0.1)+'s'; });
+
+  let activeFilter = 'all';
+  let searchQuery  = '';
+  const cards     = document.querySelectorAll('.ins-card[data-category]');
+  const noResults = document.getElementById('noResults');
+  const countEl   = document.getElementById('resultCount');
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const cat    = card.dataset.category || '';
+      const title  = card.querySelector('.ins-card-title')?.textContent.toLowerCase() || '';
+      const exerpt = card.querySelector('.ins-card-excerpt')?.textContent.toLowerCase() || '';
+      const dtitle = (card.dataset.title || '').toLowerCase();
+      const matchesCat    = activeFilter === 'all' || cat === activeFilter;
+      const matchesSearch = searchQuery === '' || title.includes(searchQuery) || exerpt.includes(searchQuery) || dtitle.includes(searchQuery);
+      if (matchesCat && matchesSearch) { card.style.display = ''; visible++; }
+      else { card.style.display = 'none'; }
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('show', visible === 0);
+  }
+
+  document.querySelectorAll('.ins-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.ins-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  document.getElementById('insSearch').addEventListener('input', (e) => {
+    searchQuery = e.target.value.toLowerCase().trim();
+    applyFilters();
+  });
+
+  function filterByCategory(cat) {
+    document.querySelectorAll('.ins-filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
+    activeFilter = cat; applyFilters();
+    window.scrollTo({ top: document.querySelector('.ins-controls').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function subscribeNewsletter() {
+    const input = document.getElementById('newsletterEmail');
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) { input.style.borderColor = '#f97316'; return; }
+    input.style.borderColor = '';
+    alert("Thank you for subscribing! You'll receive the next article in your inbox.");
+    input.value = '';
+  }
+
+  function loadMore() {
+    document.querySelectorAll('.hidden-blog').forEach(el => el.classList.remove('hidden-blog'));
+    document.getElementById('loadMoreWrap').style.display = 'none';
+    applyFilters();
+  }
+</script>
+</body>
+</html>
