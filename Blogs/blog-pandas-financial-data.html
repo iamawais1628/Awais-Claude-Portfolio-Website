@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleaning Messy Financial Data with Python Pandas | Awais Tahir</title>
+  <meta name="description" content="Step-by-step guide to cleaning messy financial data exports from QuickBooks, Xero, and Excel using Python Pandas in under 50 lines of code." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" /><link rel="stylesheet" href="blog-post.css" />
+</head>
+<body>
+<nav id="navbar"><div class="nav-inner"><a href="../index.html" class="nav-logo"><span class="logo-at">AT</span><span class="logo-name">Awais Tahir</span></a><ul class="nav-links"><li><a href="../about.html">About</a></li><li><a href="../services.html">Services</a></li><li><a href="../skills.html">Skills</a></li><li><a href="../portfolio.html">Portfolio</a></li><li><a href="../insights.html" style="color:var(--blue-light)">Insights</a></li><li><a href="../index.html#contact" class="nav-cta">Let's Talk</a></li></ul><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><ul><li><a href="../about.html" onclick="closeMobile()">About</a></li><li><a href="../services.html" onclick="closeMobile()">Services</a></li><li><a href="../skills.html" onclick="closeMobile()">Skills</a></li><li><a href="../portfolio.html" onclick="closeMobile()">Portfolio</a></li><li><a href="../insights.html" onclick="closeMobile()">Insights</a></li><li><a href="../index.html#contact" onclick="closeMobile()">Contact</a></li></ul></div>
+
+<section class="blog-hero">
+  <div class="blog-hero-orb bh-orb-1"></div><div class="blog-hero-orb bh-orb-2"></div>
+  <div class="container">
+    <div class="blog-breadcrumb"><a href="../index.html">Home</a> › <a href="../insights.html">Insights</a> › <span>Python</span></div>
+    <div class="blog-cat">🐍 Python</div>
+    <h1 class="blog-title">Cleaning Messy Financial Data with Python Pandas — A Step-by-Step Walkthrough</h1>
+    <div class="blog-meta-row">
+      <div class="blog-author"><div class="blog-author-avatar">AT</div><div><div class="blog-author-name">Awais Tahir</div><div class="blog-author-role">Finance Professional · Data Analyst</div></div></div>
+      <div class="blog-meta-sep"></div>
+      <div class="blog-meta-item">📅 April 6, 2025</div>
+      <div class="blog-meta-item">⏱ 7 min read</div>
+      <div class="blog-meta-item">👁 Python · Pandas</div>
+    </div>
+    <div class="blog-tags"><span class="blog-tag">Python</span><span class="blog-tag">Pandas</span><span class="blog-tag">Data Cleaning</span><span class="blog-tag">QuickBooks</span><span class="blog-tag">Automation</span></div>
+  </div>
+</section>
+<div class="blog-banner" style="background:linear-gradient(135deg,#080d08 0%,#0d2d0d 50%,#059669 100%)"><div class="blog-banner-emoji">🐍</div></div>
+
+<section class="blog-body-section">
+  <div class="container">
+    <div class="blog-layout">
+      <article class="blog-content">
+
+        <div class="blog-summary">
+          <div class="blog-summary-title">⚡ Key Takeaways</div>
+          <ul>
+            <li>Financial data exports are almost always dirty — missing values, wrong types, duplicates, inconsistent formats</li>
+            <li>Pandas provides a complete toolkit for fixing every common financial data problem</li>
+            <li>Always inspect before cleaning — df.info(), df.describe(), and df.isnull().sum() first</li>
+            <li>Parse dates with pd.to_datetime() — never leave dates as strings</li>
+            <li>A reusable cleaning function means you run the same fix on every new export automatically</li>
+          </ul>
+        </div>
+
+        <h2>The Problem With Financial Data Exports</h2>
+        <p>Every accountant and analyst knows this pain. You export transaction data from QuickBooks, Xero, or a bank portal, open it in Python, and immediately find: dates stored as text, amounts with currency symbols that prevent arithmetic, blank rows between sections, duplicate transaction IDs, and column names with spaces and special characters that break everything.</p>
+        <p>Before you can do a single useful analysis, you need to clean the data. And if you're doing it manually in Excel every month, you are wasting hours on a task that Python can do in seconds — repeatably and perfectly.</p>
+        <p>This guide walks through a complete cleaning pipeline for a typical financial export using Pandas.</p>
+
+        <h2>Step 1 — Load and Inspect</h2>
+        <p>Before cleaning anything, understand what you have. Run these three commands on every new dataset before touching a single value.</p>
+        <div class="blog-code">
+          <div class="blog-code-header"><div class="blog-code-dots"><div class="blog-code-dot" style="background:#f97316"></div><div class="blog-code-dot" style="background:#f59e0b"></div><div class="blog-code-dot" style="background:#50fa7b"></div></div><span>Python — Initial Inspection</span></div>
+          <pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">import</span> numpy  <span class="kw">as</span> np
+
+<span class="cmt"># Load the export</span>
+df = pd.<span class="fn">read_csv</span>(<span class="str">'quickbooks_export.csv'</span>, skiprows=<span class="num">4</span>)
+<span class="cmt"># skiprows=4 skips the QuickBooks header junk</span>
+
+<span class="cmt"># 1. Shape — how many rows and columns?</span>
+<span class="fn">print</span>(df.<span class="fn">shape</span>)          <span class="cmt"># (1247, 12)</span>
+
+<span class="cmt"># 2. Data types — what is Pandas treating each column as?</span>
+<span class="fn">print</span>(df.<span class="fn">info</span>())         <span class="cmt"># shows dtype per column</span>
+
+<span class="cmt"># 3. Missing values — how many nulls per column?</span>
+<span class="fn">print</span>(df.<span class="fn">isnull</span>().<span class="fn">sum</span>())
+
+<span class="cmt"># 4. Sample — look at a few rows</span>
+<span class="fn">print</span>(df.<span class="fn">head</span>(<span class="num">10</span>))
+
+<span class="cmt"># 5. Basic stats — spot outliers immediately</span>
+<span class="fn">print</span>(df.<span class="fn">describe</span>())</pre>
+        </div>
+
+        <h2>Step 2 — Fix Column Names</h2>
+        <p>Financial exports often have column names with spaces, special characters, mixed case, and units in brackets. Fix them all at once.</p>
+        <div class="blog-code">
+          <div class="blog-code-header"><div class="blog-code-dots"><div class="blog-code-dot" style="background:#f97316"></div><div class="blog-code-dot" style="background:#f59e0b"></div><div class="blog-code-dot" style="background:#50fa7b"></div></div><span>Python — Clean Column Names</span></div>
+          <pre"><span class="cmt"># Before: ['Transaction Date', 'Amount (GBP)', 'Acc. No.', 'Ref #']</span>
+
+df.columns = (
+    df.columns
+    .<span class="fn">str.strip</span>()           <span class="cmt"># remove leading/trailing spaces</span>
+    .<span class="fn">str.lower</span>()           <span class="cmt"># make lowercase</span>
+    .<span class="fn">str.replace</span>(<span class="str">' '</span>, <span class="str">'_'</span>) <span class="cmt"># spaces to underscores</span>
+    .<span class="fn">str.replace</span>(<span class="str">'[^a-z0-9_]'</span>, <span class="str">''</span>, regex=<span class="kw">True</span>) <span class="cmt"># remove special chars</span>
+)
+
+<span class="cmt"># After: ['transaction_date', 'amount_gbp', 'acc_no', 'ref']</span>
+<span class="fn">print</span>(df.columns.<span class="fn">tolist</span>())</pre>
+        </div>
+
+        <h2>Step 3 — Fix Date Columns</h2>
+        <p>Dates stored as strings are one of the most common financial data problems. They look fine in Excel but break every date-based calculation in Python.</p>
+        <div class="blog-code">
+          <div class="blog-code-header"><div class="blog-code-dots"><div class="blog-code-dot" style="background:#f97316"></div><div class="blog-code-dot" style="background:#f59e0b"></div><div class="blog-code-dot" style="background:#50fa7b"></div></div><span>Python — Parse Dates Correctly</span></div>
+          <pre><span class="cmt"># Common messy date formats in financial exports:</span>
+<span class="cmt"># '01/04/2025', '1-Apr-25', 'April 1, 2025', '20250401'</span>
+
+<span class="cmt"># Let Pandas infer the format (works for most cases)</span>
+df[<span class="str">'transaction_date'</span>] = pd.<span class="fn">to_datetime</span>(
+    df[<span class="str">'transaction_date'</span>],
+    dayfirst=<span class="kw">True</span>,     <span class="cmt"># UK date format DD/MM/YYYY</span>
+    errors=<span class="str">'coerce'</span>   <span class="cmt"># convert bad dates to NaT instead of crashing</span>
+)
+
+<span class="cmt"># Extract useful date parts for analysis</span>
+df[<span class="str">'year'</span>]    = df[<span class="str">'transaction_date'</span>].dt.year
+df[<span class="str">'month'</span>]   = df[<span class="str">'transaction_date'</span>].dt.month
+df[<span class="str">'quarter'</span>] = df[<span class="str">'transaction_date'</span>].dt.quarter
+df[<span class="str">'weekday'</span>] = df[<span class="str">'transaction_date'</span>].dt.day_name()
+
+<span class="cmt"># Flag rows where date parsing failed</span>
+bad_dates = df[df[<span class="str">'transaction_date'</span>].<span class="fn">isna</span>()]
+<span class="fn">print</span>(<span class="fn">f</span><span class="str">"{len(bad_dates)} rows with unparseable dates"</span>)</pre>
+        </div>
+
+        <h2>Step 4 — Fix Amount Columns</h2>
+        <p>Currency exports often include the currency symbol, thousands separators, and parentheses for negatives — all of which prevent numeric operations.</p>
+        <div class="blog-code">
+          <div class="blog-code-header"><div class="blog-code-dots"><div class="blog-code-dot" style="background:#f97316"></div><div class="blog-code-dot" style="background:#f59e0b"></div><div class="blog-code-dot" style="background:#50fa7b"></div></div><span>Python — Clean Currency Amounts</span></div>
+          <pre"><span class="cmt"># Messy amount values: '£1,240.50', '(500.00)', '-£200', '$0.00'</span>
+
+<span class="kw">def</span> <span class="fn">clean_amount</span>(val):
+    <span class="str">"""Convert messy currency string to float."""</span>
+    <span class="kw">if</span> pd.<span class="fn">isna</span>(val):
+        <span class="kw">return</span> <span class="num">0.0</span>
+    val = <span class="fn">str</span>(val).<span class="fn">strip</span>()
+    is_negative = val.<span class="fn">startswith</span>(<span class="str">'('</span>) <span class="kw">and</span> val.<span class="fn">endswith</span>(<span class="str">')'</span>)
+    val = val.<span class="fn">replace</span>(<span class="str">'£'</span>,<span class="str">''</span>).<span class="fn">replace</span>(<span class="str">'$'</span>,<span class="str">''</span>).<span class="fn">replace</span>(<span class="str">','</span>,<span class="str">''</span>)
+    val = val.<span class="fn">strip</span>(<span class="str">'()'</span>)
+    <span class="kw">try</span>:
+        result = <span class="fn">float</span>(val)
+        <span class="kw">return</span> -result <span class="kw">if</span> is_negative <span class="kw">else</span> result
+    <span class="kw">except</span> ValueError:
+        <span class="kw">return</span> np.nan
+
+df[<span class="str">'amount'</span>] = df[<span class="str">'amount_gbp'</span>].<span class="fn">apply</span>(clean_amount)
+df[<span class="str">'amount'</span>] = df[<span class="str">'amount'</span>].<span class="fn">round</span>(<span class="num">2</span>)  <span class="cmt"># round to pence</span></pre>
+        </div>
+
+        <h2>Step 5 — Remove Duplicates and Blank Rows</h2>
+        <div class="blog-code">
+          <div class="blog-code-header"><div class="blog-code-dots"><div class="blog-code-dot" style="background:#f97316"></div><div class="blog-code-dot" style="background:#f59e0b"></div><div class="blog-code-dot" style="background:#50fa7b"></div></div><span>Python — Remove Duplicates & Blanks</span></div>
+          <pre"><span class="cmt"># Remove completely blank rows (QuickBooks inserts these)</span>
+df = df.<span class="fn">dropna</span>(how=<span class="str">'all'</span>)
+
+<span class="cmt"># Remove rows where the key identifiers are blank</span>
+df = df.<span class="fn">dropna</span>(subset=[<span class="str">'transaction_date'</span>, <span class="str">'amount'</span>])
+
+<span class="cmt"># Remove exact duplicate rows</span>
+before = <span class="fn">len</span>(df)
+df = df.<span class="fn">drop_duplicates</span>()
+<span class="fn">print</span>(<span class="fn">f</span><span class="str">"Removed {before - len(df)} duplicate rows"</span>)
+
+<span class="cmt"># Remove duplicate transaction IDs (keep most recent)</span>
+df = df.<span class="fn">sort_values</span>(<span class="str">'transaction_date'</span>).<span class="fn">drop_duplicates</span>(
+    subset=[<span class="str">'transaction_id'</span>], keep=<span class="str">'last'</span>
+)</pre>
+        </div>
+
+        <h2>Step 6 — The Complete Reusable Pipeline</h2>
+        <p>Wrap all the steps into a single function. Next month, you run one line and your new export is clean in seconds.</p>
+        <div class="blog-code">
+          <div class="blog-code-header"><div class="blog-code-dots"><div class="blog-code-dot" style="background:#f97316"></div><div class="blog-code-dot" style="background:#f59e0b"></div><div class="blog-code-dot" style="background:#50fa7b"></div></div><span>Python — Complete Cleaning Pipeline</span></div>
+          <pre"><span class="kw">def</span> <span class="fn">clean_financial_export</span>(filepath: <span class="fn">str</span>) -> pd.DataFrame:
+    <span class="str">"""
+    Load and clean a QuickBooks/Xero CSV export.
+    Returns a clean DataFrame ready for analysis.
+    """</span>
+    <span class="cmt"># Load</span>
+    df = pd.<span class="fn">read_csv</span>(filepath, skiprows=<span class="num">4</span>, encoding=<span class="str">'utf-8-sig'</span>)
+
+    <span class="cmt"># Clean column names</span>
+    df.columns = df.columns.<span class="fn">str.strip</span>().<span class="fn">str.lower</span>().<span class="fn">str.replace</span>(<span class="str">' '</span>,<span class="str">'_'</span>).<span class="fn">str.replace</span>(<span class="str">'[^a-z0-9_]'</span>,<span class="str">''</span>,regex=<span class="kw">True</span>)
+
+    <span class="cmt"># Drop blanks</span>
+    df = df.<span class="fn">dropna</span>(how=<span class="str">'all'</span>)
+
+    <span class="cmt"># Parse dates</span>
+    df[<span class="str">'transaction_date'</span>] = pd.<span class="fn">to_datetime</span>(df[<span class="str">'transaction_date'</span>], dayfirst=<span class="kw">True</span>, errors=<span class="str">'coerce'</span>)
+
+    <span class="cmt"># Clean amounts</span>
+    df[<span class="str">'amount'</span>] = df[<span class="str">'amount_gbp'</span>].<span class="fn">apply</span>(clean_amount).<span class="fn">round</span>(<span class="num">2</span>)
+
+    <span class="cmt"># Remove duplicates</span>
+    df = df.<span class="fn">drop_duplicates</span>()
+
+    <span class="cmt"># Add date parts</span>
+    df[<span class="str">'year'</span>]    = df[<span class="str">'transaction_date'</span>].dt.year
+    df[<span class="str">'month'</span>]   = df[<span class="str">'transaction_date'</span>].dt.to_period(<span class="str">'M'</span>)
+    df[<span class="str">'quarter'</span>] = df[<span class="str">'transaction_date'</span>].dt.quarter
+
+    <span class="fn">print</span>(<span class="fn">f</span><span class="str">"✓ Loaded {len(df):,} clean rows from {filepath}"</span>)
+    <span class="kw">return</span> df
+
+<span class="cmt"># Usage — one line every month:</span>
+df = <span class="fn">clean_financial_export</span>(<span class="str">'april_2025_export.csv'</span>)
+<span class="cmt"># ✓ Loaded 1,247 clean rows from april_2025_export.csv</span></pre>
+        </div>
+
+        <div class="blog-callout tip">
+          <div class="blog-callout-icon">✅</div>
+          <div class="blog-callout-body">
+            <div class="blog-callout-title">Next step</div>
+            <div class="blog-callout-text">Once your data is clean, you can feed it directly into a Power BI dashboard, a SQL database, or run your analysis in Pandas. Clean data is the foundation — everything else follows from it.</div>
+          </div>
+        </div>
+
+        <div class="blog-divider"></div>
+        <div class="blog-cta-banner">
+          <div class="blog-cta-text">
+            <h3>Need Python Automation for Your Finance Data?</h3>
+            <p>I build reusable Python pipelines that clean, transform, and analyse your financial data automatically — saving hours of manual work every month.</p>
+          </div>
+          <div class="blog-cta-btns">
+            <a href="../index.html#contact" class="btn-primary">Get a Quote →</a>
+            <a href="../services.html#automation" class="btn-ghost">View Service</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="blog-sidebar">
+        <div class="blog-toc">
+          <div class="blog-toc-title">Table of Contents</div>
+          <ul class="blog-toc-list">
+            <li><a href="#" onclick="return false">The Problem With Financial Exports</a></li>
+            <li><a href="#" onclick="return false">Step 1 — Load & Inspect</a></li>
+            <li><a href="#" onclick="return false">Step 2 — Fix Column Names</a></li>
+            <li><a href="#" onclick="return false">Step 3 — Fix Date Columns</a></li>
+            <li><a href="#" onclick="return false">Step 4 — Fix Amount Columns</a></li>
+            <li><a href="#" onclick="return false">Step 5 — Remove Duplicates</a></li>
+            <li><a href="#" onclick="return false">Step 6 — Full Pipeline</a></li>
+          </ul>
+        </div>
+        <div class="blog-sidebar-author">
+          <div class="bsa-avatar">AT</div>
+          <div class="bsa-name">Awais Tahir</div>
+          <div class="bsa-role">Finance Professional · Python Developer</div>
+          <div class="bsa-desc">Building Python automation systems that eliminate manual financial data work — so your team spends time on analysis, not data prep.</div>
+          <a href="../about.html" class="btn-ghost" style="width:100%;justify-content:center;font-size:13px;padding:10px">View Profile</a>
+        </div>
+        <div class="blog-related-sidebar">
+          <div class="blog-related-sidebar-title">Related Articles</div>
+          <a href="blog-sql-window-functions.html" class="brs-item"><div class="brs-icon" style="background:linear-gradient(135deg,#1a1a4a,#7c3aed)">🗄️</div><div><div class="brs-title">SQL Window Functions for Finance Analysts</div><div class="brs-cat">Data Analytics</div></div></a>
+          <a href="blog-customer-lifetime-value.html" class="brs-item"><div class="brs-icon" style="background:linear-gradient(135deg,#0a1a3a,#1a5cd4)">🎯</div><div><div class="brs-title">How to Calculate Customer LTV</div><div class="brs-cat">Data Analytics</div></div></a>
+          <a href="blog-ifrs-financial-statements.html" class="brs-item"><div class="brs-icon" style="background:linear-gradient(135deg,#3d2b00,#c9a84c)">📊</div><div><div class="brs-title">Complete Guide to IFRS Financial Statements</div><div class="brs-cat">Financial Reporting</div></div></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="blog-related-section">
+  <div class="container">
+    <div class="section-header scroll-reveal" style="margin-bottom:36px"><div class="section-label">Keep Reading</div><h2 class="section-title">More <span class="gradient-text">Articles</span></h2></div>
+    <div class="blog-related-grid">
+      <a href="blog-sql-window-functions.html" class="brel-card scroll-reveal"><div class="brel-img" style="background:linear-gradient(135deg,#080818,#1a1a4a,#7c3aed)">🗄️</div><div class="brel-body"><div class="brel-cat">Data Analytics</div><div class="brel-title">SQL Window Functions Every Finance Analyst Should Know</div><div class="brel-link">Read Article →</div></div></a>
+      <a href="blog-customer-lifetime-value.html" class="brel-card scroll-reveal" style="transition-delay:.1s"><div class="brel-img" style="background:linear-gradient(135deg,#080a10,#0a1a3a,#1a5cd4)">🎯</div><div class="brel-body"><div class="brel-cat">Data Analytics</div><div class="brel-title">How to Calculate Customer Lifetime Value Using SQL and Python</div><div class="brel-link">Read Article →</div></div></a>
+      <a href="blog-cash-flow-management.html" class="brel-card scroll-reveal" style="transition-delay:.2s"><div class="brel-img" style="background:linear-gradient(135deg,#0a080a,#2d0a1a,#be185d)">💰</div><div class="brel-body"><div class="brel-cat">Business Finance</div><div class="brel-title">Why Profitable Businesses Still Run Out of Cash</div><div class="brel-link">Read Article →</div></div></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div class="footer-inner"><div class="footer-brand"><div class="footer-logo"><span class="logo-at">AT</span><span class="logo-name">Awais Tahir</span></div><p class="footer-tagline">Finance Professional · Data Analyst · Future Finance-Tech Founder</p><p class="footer-copy">© 2025 Awais Tahir · iamawaistahir.com · All Rights Reserved</p></div><div class="footer-links"><div class="fl-col"><div class="fl-title">Quick Links</div><a href="../about.html">About</a><a href="../services.html">Services</a><a href="../portfolio.html">Portfolio</a><a href="../insights.html">All Articles</a><a href="../index.html#contact">Contact</a></div><div class="fl-col"><div class="fl-title">More Articles</div><a href="blog-ifrs-financial-statements.html">IFRS Guide</a><a href="blog-power-bi-mistakes.html">Power BI Mistakes</a><a href="blog-sql-window-functions.html">SQL Functions</a><a href="blog-cash-flow-management.html">Cash Flow</a></div></div></div><div class="footer-bottom"><span>Built with precision · iamawaistahir.com</span><div class="footer-socials"><a href="https://www.linkedin.com/in/iamawais1628/" target="_blank">in</a><a href="https://wa.me/923000889402" target="_blank">wa</a></div></div></div></footer>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>const nb=document.getElementById('navbar');window.addEventListener('scroll',()=>{nb.classList.toggle('scrolled',window.scrollY>40);document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});const hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu');hb.addEventListener('click',()=>{mm.classList.toggle('open');const s=hb.querySelectorAll('span');if(mm.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';})}});function closeMobile(){mm.classList.remove('open');hb.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity='';})}const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.scroll-reveal').forEach(el=>obs.observe(el));</script>
+</body></html>
