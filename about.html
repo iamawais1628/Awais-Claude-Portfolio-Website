@@ -12,8 +12,8 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Awais Tahir | Finance Professional & Data Analyst</title>
-  <meta name="description" content="Learn about Awais Tahir — ACCA student, finance professional, data analyst and future fintech founder with 5+ years of experience transforming financial data into business growth." />
+  <title>About Awais Tahir | Founder, Axiom Business Tech | Finance & Data Analytics</title>
+  <meta name="description" content="Awais Tahir is the Founder of Axiom Business Tech — a finance and technology company delivering accounting, data analytics, and automation solutions to SMEs and startups worldwide. ACCA student, 5+ years experience." />
   <meta name="author" content="Awais Tahir" />
   <link rel="canonical" href="https://iamawaistahir.com/about.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -380,6 +380,81 @@
     }
     .value-desc { font-size: 14.5px; color: var(--text-2); line-height: 1.75; }
 
+    /* ── Axiom section ── */
+    .axiom-section { padding: 100px 0; background: var(--navy-2); position: relative; overflow: hidden; }
+    .axiom-orb {
+      position: absolute;
+      width: 500px; height: 500px;
+      top: -100px; left: -100px;
+      background: radial-gradient(circle, rgba(201,168,76,.07) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    .axiom-inner { position: relative; z-index: 2; }
+    .axiom-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 56px;
+    }
+    .axiom-body {
+      font-size: 16.5px;
+      color: var(--text-2);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .axiom-body strong { color: var(--text-1); font-weight: 600; }
+    .axiom-body em { color: var(--blue-light); font-style: normal; }
+    .axiom-differentiators {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .axiom-diff-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 22px;
+      background: rgba(201,168,76,.04);
+      border: 1px solid rgba(201,168,76,.12);
+      border-radius: 12px;
+    }
+    .axiom-diff-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .axiom-diff-title {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 4px;
+    }
+    .axiom-diff-desc { font-size: 13.5px; color: var(--text-2); line-height: 1.65; }
+    .axiom-forward {
+      margin-top: 36px;
+      padding: 24px 28px;
+      background: rgba(201,168,76,.05);
+      border-left: 3px solid var(--blue-light);
+      border-radius: 0 12px 12px 0;
+    }
+    .axiom-forward p {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-style: italic;
+      color: var(--text-1);
+      line-height: 1.6;
+    }
+    .axiom-forward cite {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      color: var(--blue-light);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
     /* ── Expertise deep-dive ── */
     .expertise-section { padding: 100px 0; background: var(--navy-2); }
     .expertise-grid {
@@ -607,6 +682,7 @@
       .expertise-grid { grid-template-columns: 1fr; }
       .certs-grid { grid-template-columns: 1fr 1fr; }
       .philosophy-pillars { grid-template-columns: 1fr 1fr; }
+      .axiom-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     @media (max-width: 640px) {
       .about-hero { padding: 120px 0 60px; }
@@ -674,7 +750,7 @@
           <em>The Numbers</em>
         </h1>
         <p class="about-hero-sub reveal-up" style="animation-delay:.3s">
-          I'm Awais Tahir — a finance professional, ACCA student, and data analyst who believes that every business decision should be powered by precise, intelligent financial data.
+          I'm Awais Tahir — a finance professional, ACCA student, and data analyst who believes that every business decision should be powered by precise, intelligent financial data. As the Founder of <strong style="color: var(--text-1);"><a href="https://www.axiombusinesstech.com" target="_blank" rel="noopener" style="color: var(--text-1); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,.4);">Axiom Business Tech</a></strong>, I'm building a data-driven finance company that transforms how businesses understand, manage, and act on their numbers.
         </p>
         <div class="about-hero-actions reveal-up" style="animation-delay:.4s">
           <a href="index.html#contact" class="btn-primary">Work With Me →</a>
@@ -690,7 +766,7 @@
           <div class="about-photo-inner">
             <div class="photo-avatar">AT</div>
             <div class="photo-name">Awais Tahir</div>
-            <div class="photo-role">Finance Professional · Data Analyst</div>
+            <div class="photo-role">Founder, Axiom Business Tech · Finance Professional</div>
             <div class="photo-divider"></div>
             <div class="photo-stats">
               <div class="photo-stat">
@@ -733,23 +809,31 @@
       <!-- Left: story text -->
       <div class="scroll-reveal">
         <div class="story-label">My Journey</div>
-        <h2 class="story-title">From Ledgers to<br/><em>Algorithms</em></h2>
+        <h2 class="story-title">From Ledgers to<br/><em>Building a Company</em></h2>
 
         <p class="story-body">
-          My journey into finance began with a simple realization — <strong>numbers are the language of business</strong>, and most businesses are speaking it poorly. I started by mastering the fundamentals: bookkeeping, accounting, and financial reporting. But I quickly saw that even perfect records meant nothing if the insights buried inside them couldn't be surfaced quickly.
+          My journey into finance began with a simple but frustrating observation — <strong>most businesses are drowning in financial data they can't use</strong>. The books are maintained, the reports are filed, but the insights that should drive growth are buried, delayed, or missing entirely. I started by mastering the fundamentals: bookkeeping, financial reporting, and accounting systems. But it quickly became clear that technical accuracy alone was never going to be enough.
+        </p>
+
+        <p class="story-body">
+          That realization led me to <em>data analytics</em> — first Excel, then SQL, Python, and Power BI. Each tool opened a new dimension of what was possible. A well-structured dashboard could replace hours of weekly reporting. A Python script could catch reconciliation errors before they compounded. <strong>Technology doesn't replace the finance professional — it multiplies their impact.</strong>
         </p>
 
         <div class="story-quote">
-          <p>"I don't just want to report what happened. I want to predict what's coming and help businesses prepare."</p>
-          <cite>— Awais Tahir</cite>
+          <p>"I didn't want to just serve clients. I wanted to build something — a company with systems, processes, and a clear mission: making financial intelligence accessible to every business, not just the largest ones."</p>
+          <cite>— Awais Tahir, Founder · Axiom Business Tech</cite>
         </div>
 
         <p class="story-body">
-          That curiosity led me to <em>data analytics</em> — first Excel, then SQL, Python, and Power BI. Each tool opened a new dimension of insight. I learned that a well-built financial dashboard can replace hours of weekly meetings. That a Python script can catch reconciliation errors a human eye would miss. That <strong>technology doesn't replace the finance professional — it amplifies them</strong>.
+          That conviction led to the founding of <a href="https://www.axiombusinesstech.com" target="_blank" rel="noopener" style="color: var(--blue-light); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,.3);">Axiom Business Tech</a>. The name reflects the core belief: that financial clarity should be axiomatic — a non-negotiable foundation every business operates from, not a luxury reserved for enterprise. Axiom was built from day one with a systems-first, scalable mindset. Not a one-person consultancy, but a structured operation capable of delivering across clients, industries, and geographies simultaneously.
         </p>
 
         <p class="story-body">
-          Today, I combine rigorous financial discipline with modern analytical tools to serve clients across industries. I'm simultaneously pursuing my <strong>ACCA qualification</strong> — deepening my technical knowledge — while building toward a future where I launch a <em>fintech platform</em> that makes financial intelligence accessible to every SME, not just the Fortune 500.
+          Today, Axiom serves SMEs, startups, and growing businesses through a fully integrated offering: accounting and bookkeeping, financial reporting, data analytics, process automation, and technology-enabled financial strategy. Every engagement is built on the same foundation — <strong>rigorous financial discipline, powered by modern analytical tools, delivered with a business-first mindset.</strong>
+        </p>
+
+        <p class="story-body">
+          The long-term vision is deliberate: to scale Axiom into a structured finance-tech company — one with a team, a repeatable delivery model, and eventually a proprietary platform that gives SMEs the kind of financial intelligence that was previously only available to the Fortune 500.
         </p>
       </div>
 
@@ -762,8 +846,8 @@
           <div class="timeline-item">
             <div class="tl-year">2019 — Present</div>
             <div class="tl-title">Finance Professional & Data Analyst</div>
-            <div class="tl-org">Independent / Freelance · Remote</div>
-            <div class="tl-desc">Providing full-cycle bookkeeping, financial reporting, Power BI dashboards, and Python automation services to businesses across multiple industries and geographies.</div>
+            <div class="tl-org">Independent Practice · Remote</div>
+            <div class="tl-desc">Built a foundation in full-cycle bookkeeping, financial reporting, Power BI dashboards, and Python automation — serving clients across multiple industries and geographies, and developing the systems thinking that would later define Axiom.</div>
           </div>
 
           <div class="timeline-item">
@@ -777,21 +861,21 @@
             <div class="tl-year">2022</div>
             <div class="tl-title">Advanced Data Analytics Certification</div>
             <div class="tl-org">Python · SQL · Power BI Stack</div>
-            <div class="tl-desc">Completed advanced training in data analysis, machine learning for financial forecasting, and business intelligence dashboard development.</div>
+            <div class="tl-desc">Completed advanced training in data analysis, machine learning for financial forecasting, and business intelligence dashboard development — completing the finance-plus-technology skill stack that powers Axiom's delivery model.</div>
           </div>
 
           <div class="timeline-item">
             <div class="tl-year">2023</div>
-            <div class="tl-title">Finance-Tech Vision</div>
-            <div class="tl-org">Founder-in-Progress</div>
-            <div class="tl-desc">Began developing the vision and early prototypes for a SaaS financial intelligence platform targeting SMEs — bridging the gap between enterprise-grade BI and small business reality.</div>
+            <div class="tl-title">Founder — Axiom Business Tech</div>
+            <div class="tl-org"><a href="https://www.axiombusinesstech.com" target="_blank" rel="noopener" style="color: var(--text-3); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,.2);">axiombusinesstech.com</a> · Finance · Analytics · Technology</div>
+            <div class="tl-desc">Founded Axiom Business Tech to address a gap in the market: businesses needed more than accounting — they needed integrated financial systems, real-time analytics, and automation. Built the company's service model, internal processes, and delivery infrastructure from the ground up with a scalable, multi-client operating model.</div>
           </div>
 
           <div class="timeline-item">
             <div class="tl-year">2024 — Present</div>
-            <div class="tl-title">50+ Client Engagements</div>
-            <div class="tl-org">Global Remote Delivery</div>
-            <div class="tl-desc">Scaled consulting practice with clients across e-commerce, professional services, real estate, and tech startups. Delivered 200+ financial reports and 40+ interactive dashboards.</div>
+            <div class="tl-title">Scaling Axiom — 50+ Client Engagements</div>
+            <div class="tl-org">Global Remote Delivery · SMEs & Startups</div>
+            <div class="tl-desc">Scaled Axiom's client base across e-commerce, professional services, real estate, and tech startups. Delivered 200+ financial reports and 40+ interactive dashboards. Continuing to build the team, systems, and technology vision that will define Axiom's next phase of growth.</div>
           </div>
         </div>
       </div>
@@ -800,50 +884,118 @@
   </div>
 </section>
 
+<!-- ═══════════════════════ BUILDING AXIOM BUSINESS TECH ═══════════════════════ -->
+<section class="axiom-section">
+  <div class="axiom-orb"></div>
+  <div class="container">
+    <div class="axiom-inner">
+      <div class="section-header scroll-reveal">
+        <div class="section-label">The Company</div>
+        <h2 class="section-title">Building <span class="gradient-text">Axiom Business Tech</span></h2>
+        <p class="section-desc">A finance and technology company built for businesses that demand more than compliance — they demand clarity, speed, and competitive advantage from their financial operations.</p>
+        <a href="https://www.axiombusinesstech.com" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-family:var(--font-ui); font-size:13px; font-weight:600; color:var(--blue-light); text-decoration:none; letter-spacing:.5px;">Visit Axiom Business Tech →</a>
+      </div>
+
+      <div class="axiom-grid">
+        <!-- Left: what Axiom is -->
+        <div class="scroll-reveal">
+          <p class="axiom-body">
+            <strong>Axiom Business Tech</strong> was founded on a premise that too many businesses prove true every day: having accurate books is not the same as having financial clarity. Most SMEs and growing startups operate with fragmented data, reactive reporting, and manual processes that consume time without producing insight.
+          </p>
+          <p class="axiom-body">
+            Axiom exists to close that gap. We deliver <em>integrated financial operations</em> — combining structured accounting, intelligent reporting, and technology-driven automation into a single, cohesive system. The result isn't just cleaner books. It's a business that can see its financial reality in real time, anticipate risks before they arrive, and make decisions anchored in data rather than intuition.
+          </p>
+          <p class="axiom-body">
+            Our clients are <strong>SMEs, startups, and scaling businesses</strong> — companies that are serious about growth but don't yet have the internal infrastructure of an enterprise finance team. We serve them globally, operating as a remote-first, systems-driven practice built to deliver consistently across time zones and industries.
+          </p>
+          <div class="axiom-forward">
+            <p>"The vision for Axiom has always been bigger than consulting. We're building toward a structured company — with a team, proprietary systems, and eventually a platform that puts enterprise-grade financial intelligence within reach of every ambitious business."</p>
+            <cite>— Awais Tahir, Founder</cite>
+          </div>
+        </div>
+
+        <!-- Right: what makes Axiom different -->
+        <div class="scroll-reveal" style="transition-delay:.15s">
+          <div class="axiom-differentiators">
+            <div class="axiom-diff-item">
+              <div class="axiom-diff-icon">🔗</div>
+              <div>
+                <div class="axiom-diff-title">Finance + Technology, Integrated</div>
+                <div class="axiom-diff-desc">Most accounting firms stop at compliance. Most tech firms don't understand finance. Axiom sits at the intersection — delivering solutions that are both financially rigorous and technically sophisticated.</div>
+              </div>
+            </div>
+            <div class="axiom-diff-item">
+              <div class="axiom-diff-icon">⚙️</div>
+              <div>
+                <div class="axiom-diff-title">Automation-First Delivery</div>
+                <div class="axiom-diff-desc">Every manual process is a failure point. Axiom builds automation into every engagement — from invoice workflows to reporting pipelines — so clients get faster output, fewer errors, and more time for strategic thinking.</div>
+              </div>
+            </div>
+            <div class="axiom-diff-item">
+              <div class="axiom-diff-icon">📊</div>
+              <div>
+                <div class="axiom-diff-title">Decision-Focused Reporting</div>
+                <div class="axiom-diff-desc">Reports should answer questions, not create them. Every deliverable Axiom produces is designed around a single question: what decision does this enable? Data without direction is just noise.</div>
+              </div>
+            </div>
+            <div class="axiom-diff-item">
+              <div class="axiom-diff-icon">🏗️</div>
+              <div>
+                <div class="axiom-diff-title">Systems-Driven, Scalable Structure</div>
+                <div class="axiom-diff-desc">Axiom operates like a company, not a freelancer. Standardized processes, documented workflows, and a scalable service model mean that quality doesn't depend on any single person — it's built into the system.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════ CORE VALUES ═══════════════════════ -->
 <section class="values-section">
   <div class="container">
     <div class="section-header text-center scroll-reveal" style="text-align:center">
-      <div class="section-label">What Drives Me</div>
+      <div class="section-label">What Drives Us</div>
       <h2 class="section-title">Core <span class="gradient-text">Values</span></h2>
-      <p class="section-desc" style="margin: 0 auto;">Every engagement I take on is guided by a set of non-negotiable principles that define how I work and why clients trust me.</p>
+      <p class="section-desc" style="margin: 0 auto;">Every engagement Axiom takes on is guided by a set of non-negotiable principles that define how we work and why clients trust us.</p>
     </div>
 
     <div class="values-grid">
       <div class="value-card scroll-reveal">
         <span class="value-icon">🎯</span>
         <div class="value-title">Precision Above All</div>
-        <p class="value-desc">In finance, a rounding error isn't a typo — it's a liability. I maintain obsessive accuracy in every number, every formula, and every report I deliver. A 99% accuracy rate is not good enough; 100% is the standard.</p>
+        <p class="value-desc">In finance, a rounding error isn't a typo — it's a liability. Axiom maintains obsessive accuracy in every number, every formula, and every report delivered. A 99% accuracy rate is not good enough; 100% is the standard.</p>
       </div>
 
       <div class="value-card scroll-reveal" style="transition-delay:.1s">
         <span class="value-icon">💡</span>
         <div class="value-title">Insight Over Information</div>
-        <p class="value-desc">Raw data is worthless without interpretation. My job isn't to hand you a spreadsheet — it's to translate that data into decisions. Every report I build answers the question: "So what does this mean for the business?"</p>
+        <p class="value-desc">Raw data is worthless without interpretation. Our job isn't to hand you a spreadsheet — it's to translate that data into decisions. Every report Axiom builds answers the question: "So what does this mean for the business?"</p>
       </div>
 
       <div class="value-card scroll-reveal" style="transition-delay:.2s">
         <span class="value-icon">🤝</span>
         <div class="value-title">Partnership Mindset</div>
-        <p class="value-desc">I don't work for clients — I work with them. Understanding your business goals, your industry pressures, and your growth ambitions is what separates a good report from a great strategy.</p>
+        <p class="value-desc">We don't work for clients — we work with them. Understanding your business goals, your industry pressures, and your growth ambitions is what separates a good report from a great strategy.</p>
       </div>
 
       <div class="value-card scroll-reveal" style="transition-delay:.3s">
         <span class="value-icon">⚡</span>
         <div class="value-title">Technology as Leverage</div>
-        <p class="value-desc">Every manual task is a bottleneck waiting to be eliminated. I bring automation, analytics, and modern tooling to every engagement — so you get more insight in less time, with fewer errors.</p>
+        <p class="value-desc">Every manual task is a bottleneck waiting to be eliminated. Axiom brings automation, analytics, and modern tooling to every engagement — so clients get more insight in less time, with fewer errors.</p>
       </div>
 
       <div class="value-card scroll-reveal" style="transition-delay:.4s">
         <span class="value-icon">📈</span>
         <div class="value-title">Growth-Oriented Thinking</div>
-        <p class="value-desc">I'm not here to tell you where you've been. I'm here to show you where you can go. Every analysis I produce is designed to uncover opportunities, flag risks early, and support smarter decision-making.</p>
+        <p class="value-desc">We're not here to tell you where you've been. We're here to show you where you can go. Every analysis Axiom produces is designed to uncover opportunities, flag risks early, and support smarter decision-making.</p>
       </div>
 
       <div class="value-card scroll-reveal" style="transition-delay:.5s">
         <span class="value-icon">🔐</span>
         <div class="value-title">Confidentiality & Trust</div>
-        <p class="value-desc">Financial data is deeply personal. I treat every client's information with the highest level of discretion, professionalism, and respect — always. Trust, once broken, cannot be recovered.</p>
+        <p class="value-desc">Financial data is deeply personal. Axiom treats every client's information with the highest level of discretion, professionalism, and respect — always. Trust, once broken, cannot be recovered.</p>
       </div>
     </div>
   </div>
@@ -853,9 +1005,9 @@
 <section class="expertise-section">
   <div class="container">
     <div class="section-header scroll-reveal">
-      <div class="section-label">Deep Expertise</div>
-      <h2 class="section-title">What I <span class="gradient-text">Excel At</span></h2>
-      <p class="section-desc">Five years of focused work across finance and data has built a rare skillset that sits at the intersection of accounting rigour and analytical power.</p>
+      <div class="section-label">Company-Level Capability</div>
+      <h2 class="section-title">What Axiom <span class="gradient-text">Delivers</span></h2>
+      <p class="section-desc">Five years of focused work across finance and data has built a rare capability set — one that sits at the intersection of accounting rigour, analytical power, and technology-driven execution.</p>
     </div>
 
     <div class="expertise-grid">
@@ -868,12 +1020,12 @@
           </div>
         </div>
         <ul class="expertise-list">
-          <li>Full-cycle bookkeeping from chart of accounts setup to year-end close</li>
-          <li>Preparation of financial statements — P&L, Balance Sheet, Cash Flow</li>
-          <li>Accounts receivable and payable management with aging analysis</li>
-          <li>Bank reconciliation, journal entries, and audit-ready workpapers</li>
-          <li>QuickBooks, Xero, and Excel-based accounting systems</li>
-          <li>Management accounts and board-level reporting packages</li>
+          <li>At Axiom, we build structured financial systems — from chart of accounts setup through year-end close — designed to scale with the business</li>
+          <li>IFRS and GAAP-compliant financial statements: P&L, Balance Sheet, Cash Flow</li>
+          <li>Accounts receivable and payable management with aging analysis and cash flow forecasting</li>
+          <li>Bank reconciliation, journal entries, and audit-ready workpapers built for clean handoffs</li>
+          <li>QuickBooks, Xero, and Excel-based accounting system implementation and optimization</li>
+          <li>Management accounts and board-level reporting packages that give leadership what they actually need</li>
         </ul>
       </div>
 
@@ -886,12 +1038,12 @@
           </div>
         </div>
         <ul class="expertise-list">
-          <li>Exploratory data analysis (EDA) and statistical modeling in Python</li>
-          <li>Complex SQL queries, CTEs, window functions, and ETL pipelines</li>
-          <li>Interactive Power BI dashboards with DAX measures and drill-through</li>
-          <li>Financial forecasting and variance analysis models</li>
-          <li>Pandas, NumPy, Matplotlib, and Seaborn for financial data visualization</li>
-          <li>KPI frameworks and real-time reporting infrastructure</li>
+          <li>Axiom transforms raw financial data into structured analytical frameworks — not one-off charts, but repeatable intelligence systems</li>
+          <li>Complex SQL queries, CTEs, window functions, and ETL pipelines that consolidate data from multiple sources</li>
+          <li>Interactive Power BI dashboards with DAX measures, drill-through capability, and real-time data refresh</li>
+          <li>Financial forecasting and variance analysis models that surface anomalies before they become problems</li>
+          <li>Pandas, NumPy, Matplotlib, and Seaborn for financial data visualization and statistical modeling</li>
+          <li>KPI frameworks and reporting infrastructure designed around the decisions that matter most</li>
         </ul>
       </div>
 
@@ -904,12 +1056,12 @@
           </div>
         </div>
         <ul class="expertise-list">
-          <li>Automated invoice generation, reconciliation, and report distribution</li>
-          <li>Python scripts that replace repetitive Excel tasks saving 10+ hours/week</li>
-          <li>API integrations connecting accounting software to analytics platforms</li>
-          <li>Scheduled data pipelines for real-time financial dashboards</li>
-          <li>Excel VBA macros for custom financial workflows</li>
-          <li>Error detection and anomaly flagging in financial datasets</li>
+          <li>Axiom eliminates manual financial workflows by replacing them with reliable, documented automation systems</li>
+          <li>Automated invoice generation, reconciliation, and report distribution that runs without human intervention</li>
+          <li>Python scripts that handle reconciliation, exception flagging, and scheduled data pulls — saving 10+ hours per week</li>
+          <li>API integrations connecting accounting software, banks, and analytics platforms into unified data flows</li>
+          <li>Scheduled data pipelines that keep dashboards current without manual refresh or data entry</li>
+          <li>Error detection and anomaly flagging built into the workflow — catching problems at source, not at month-end</li>
         </ul>
       </div>
 
@@ -917,17 +1069,17 @@
         <div class="expertise-block-header">
           <div class="expertise-block-icon">🚀</div>
           <div>
-            <div class="expertise-block-title">Fintech & Strategy</div>
-            <div class="expertise-block-sub">SaaS · Product · Vision</div>
+            <div class="expertise-block-title">Fintech & Strategic Vision</div>
+            <div class="expertise-block-sub">SaaS · Product · Platform</div>
           </div>
         </div>
         <ul class="expertise-list">
-          <li>Financial product design for SME-focused SaaS applications</li>
-          <li>Business model analysis and unit economics modeling</li>
-          <li>Technology stack evaluation for finance teams</li>
-          <li>Digital transformation roadmaps for finance departments</li>
-          <li>Competitive landscape analysis in fintech and accounting software</li>
-          <li>Go-to-market strategy for financial services businesses</li>
+          <li>Axiom is building toward a proprietary fintech platform — designed to deliver enterprise-grade financial intelligence to SMEs at scale</li>
+          <li>Business model analysis and unit economics modeling for finance-led strategic decisions</li>
+          <li>Technology stack evaluation and digital transformation roadmaps for scaling finance teams</li>
+          <li>Financial product design for SME-focused SaaS applications — combining accounting logic with modern UX thinking</li>
+          <li>Competitive landscape analysis across fintech, accounting software, and business intelligence platforms</li>
+          <li>Go-to-market strategy development for financial services and technology businesses entering new markets</li>
         </ul>
       </div>
     </div>
@@ -940,7 +1092,7 @@
     <div class="section-header scroll-reveal">
       <div class="section-label">Qualifications</div>
       <h2 class="section-title">Education & <span class="gradient-text">Certifications</span></h2>
-      <p class="section-desc">Continuously investing in credentials that validate expertise and expand capabilities.</p>
+      <p class="section-desc">Continuously investing in credentials that validate expertise and expand Axiom's capabilities across finance, data, and technology.</p>
     </div>
 
     <div class="certs-grid">
@@ -1012,7 +1164,7 @@
   <div class="philosophy-orb"></div>
   <div class="container">
     <div class="philosophy-inner scroll-reveal">
-      <div class="section-label" style="text-align:center; margin-bottom:16px;">My Philosophy</div>
+      <div class="section-label" style="text-align:center; margin-bottom:16px;">The Axiom Philosophy</div>
       <h2 class="philosophy-title">
         Finance Is Not a <em>Function</em> —<br/>It's a Foundation
       </h2>
@@ -1020,7 +1172,7 @@
         Every great business decision — from a small pricing change to a $10M expansion — stands or falls on the quality of the financial intelligence behind it. Yet most businesses make these decisions with incomplete data, delayed reports, and manual processes that introduce error at every step.
       </p>
       <p class="philosophy-body">
-        I believe that combining traditional accounting rigour with modern data technology creates something transformational: a business that can see its financial reality in real time, anticipate problems before they arrive, and act on opportunities before competitors do.
+        At Axiom Business Tech, we believe that combining traditional accounting rigour with modern data technology creates something transformational: a business that can see its financial reality in real time, anticipate problems before they arrive, and act on opportunities before competitors do. This is not just how I think — it is how Axiom operates, for every client, on every engagement.
       </p>
 
       <div class="philosophy-pillars">
@@ -1059,7 +1211,7 @@
         Let's Turn Your Data Into<br/><em>Your Advantage</em>
       </h2>
       <p class="about-cta-sub">
-        Whether you need clean books, a powerful dashboard, or a full financial strategy — I'm ready to build it with you.
+        Whether you need clean books, a powerful dashboard, or a full financial strategy — Axiom Business Tech is ready to build it with you.
       </p>
       <div class="about-cta-actions">
         <a href="index.html#contact" class="btn-primary">Start a Conversation →</a>
@@ -1078,8 +1230,9 @@
           <span class="logo-at">AT</span>
           <span class="logo-name">Awais Tahir</span>
         </div>
-        <p class="footer-tagline">Finance Professional · Data Analyst · Future Finance-Tech Founder</p>
-        <p class="footer-copy">© 2025 Awais Tahir · iamawaistahir.com · All Rights Reserved</p>
+        <p class="footer-tagline">Founder, Axiom Business Tech · Finance Professional · Data Analyst</p>
+        <a href="https://www.axiombusinesstech.com" target="_blank" rel="noopener" style="font-family:var(--font-ui); font-size:12px; color:var(--blue-light); text-decoration:none; opacity:.8; display:inline-block; margin-bottom:8px;">axiombusinesstech.com ↗</a>
+        <p class="footer-copy">© 2026 Awais Tahir · iamawaistahir.com · All Rights Reserved</p>
       </div>
       <div class="footer-links">
         <div class="fl-col">
@@ -1103,8 +1256,8 @@
     <div class="footer-bottom">
       <span>Built with precision · iamawaistahir.com</span>
       <div class="footer-socials">
-        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">in</a>
-        <a href="https://wa.me/923001234567" target="_blank" aria-label="WhatsApp">wa</a>
+        <a href="https://linkedin.com/in/iamawais1628" target="_blank" aria-label="LinkedIn">in</a>
+        <a href="https://wa.me/923000889402" target="_blank" aria-label="WhatsApp">wa</a>
       </div>
     </div>
   </div>
