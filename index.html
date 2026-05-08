@@ -899,7 +899,7 @@ a.sc-arrow { text-decoration: none; display: inline-block; cursor: pointer; }
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
-  <!-- NEWSLETTER POPUP MODAL -->
+<!-- NEWSLETTER POPUP MODAL - GOLDEN THEME -->
 <!-- Add this code before closing </body> tag in your index.html -->
 
 <div id="newsletterPopup" class="newsletter-popup-overlay">
@@ -939,7 +939,7 @@ a.sc-arrow { text-decoration: none; display: inline-block; cursor: pointer; }
 </div>
 
 <style>
-/* NEWSLETTER POPUP STYLES */
+/* NEWSLETTER POPUP STYLES - GOLDEN THEME */
 .newsletter-popup-overlay {
     display: none;
     position: fixed;
@@ -1033,26 +1033,27 @@ a.sc-arrow { text-decoration: none; display: inline-block; cursor: pointer; }
 .newsletter-form input:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.1);
-    border-color: #1a5cd4;
-    box-shadow: 0 0 0 3px rgba(26, 92, 212, 0.1);
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
 }
 
+/* GOLDEN BUTTON - MAIN SUBSCRIBE BUTTON */
 .btn-subscribe {
     padding: 12px 16px;
-    background: linear-gradient(135deg, #1a5cd4 0%, #1a4fb8 100%);
-    color: white;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #000;
     border: none;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn-subscribe:hover {
-    background: linear-gradient(135deg, #164ac7 0%, #1640a8 100%);
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(26, 92, 212, 0.3);
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
 }
 
 .btn-subscribe:active {
@@ -1099,9 +1100,9 @@ a.sc-arrow { text-decoration: none; display: inline-block; cursor: pointer; }
 }
 
 .loading-message {
-    background: rgba(26, 92, 212, 0.1);
-    border: 1px solid rgba(26, 92, 212, 0.3);
-    color: #1a5cd4;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #f59e0b;
 }
 
 @keyframes fadeIn {
@@ -1231,6 +1232,7 @@ a.sc-arrow { text-decoration: none; display: inline-block; cursor: pointer; }
             // Mailchimp integration (alternative method)
             // await subscribeToMailchimp(email);
 
+            console.log('Form submitted successfully');
             showLoading(false);
             hideAllMessages();
             successMsg.style.display = 'block';
